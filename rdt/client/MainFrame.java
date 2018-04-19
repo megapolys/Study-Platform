@@ -7,6 +7,8 @@ import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollBar;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -45,16 +47,22 @@ public class MainFrame extends Application {
     }
 
     private FlowPane getMainPane(){
-        FlowPane pane = new FlowPane(10, 50);
-        pane.setAlignment(Pos.CENTER);
-        pane.setOrientation(Orientation.VERTICAL);
+        FlowPane flowPane = new FlowPane(10, 50);
+        flowPane.setAlignment(Pos.CENTER);
+        flowPane.setOrientation(Orientation.VERTICAL);
 
         Label mainLabel = new Label("Выберите предмет");
 
+        ScrollPane scrollPane = new ScrollPane();
+
         Button firstButton = new Button("Тактика");
+        Button secondButton = new Button("ОВП");
 
-        pane.getChildren().addAll(mainLabel, firstButton);
+        scrollPane.setContent(firstButton);
+        scrollPane.setContent(secondButton);
 
-        return pane;
+        flowPane.getChildren().addAll(mainLabel, scrollPane);
+
+        return flowPane;
     }
 }
