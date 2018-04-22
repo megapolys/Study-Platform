@@ -11,7 +11,7 @@ public class NetworkServer {
 	private ServerSocket serverSocket;
 	
 	private ClientAcceptionThread clientAcceptionThread;
-	private ArrayList<Client> clients;
+	private ArrayList<NetworkClient> clients;
 	
 	public NetworkServer(int port) {
 		
@@ -22,7 +22,7 @@ public class NetworkServer {
 			this.serverSocket = new ServerSocket(port);
 			
 			this.clientAcceptionThread = new ClientAcceptionThread(serverSocket);
-			this.clients = new ArrayList<Client>();
+			this.clients = new ArrayList<NetworkClient>();
 			
 			this.clientAcceptionThread.start();
 			
@@ -35,10 +35,34 @@ public class NetworkServer {
 		
 	}
 	
+	public boolean hasWaitingClients() {
+		return clientAcceptionThread.hasClientSocket();
+	}
+	
+	public boolean hasMessages() {
+		
+		for (int i = 0; i < clients.size(); i++)
+			if (clients.get(i).hasInputPackets())
+				return true;
+		
+		return false;
+		
+	}
+	
+	public ClientMessage getMessage() {
+		
+		for (int i = 0; i < clients.size(); i++)
+			if (clients.get(i).hasInputPackets())
+				return new ClientMessage(clients.get(i), clients.get(i).getPacket());
+		
+		return null;
+		
+	}
+	
 	public void update() {
 		
 		while (clientAcceptionThread.hasClientSocket()) 
-			clients.add(new Client(clientAcceptionThread.getClientSocket()));
+			clients.add(new NetworkClient(clientAcceptionThread.getClientSocket()));
 		
 	}
 	

@@ -1,6 +1,7 @@
 package rdt.main;
 
 import rdt.net.NetworkServer;
+import rdt.util.Utils;
 
 public class ServerMain {
 
@@ -8,8 +9,7 @@ public class ServerMain {
 		
 		NetworkServer server = new NetworkServer(13197);
 		
-		server.update();
-		server.close();
+		System.out.println(Utils.getHash("C:\\Users\\Artyom\\YandexDisk\\Programming\\Java\\Eclipse\\WorkSpace\\StudyPlatform\\src\\rdt\\main\\ServerMain.java"));
 		
 	}
 	
