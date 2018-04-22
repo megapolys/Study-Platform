@@ -21,11 +21,15 @@ public class ClientAcceptionThread extends Thread {
 	}
 	
 	public boolean hasClientSocket() {
-		return clientSockets.size() != 0;
+		synchronized(clientSockets) {
+			return clientSockets.size() != 0;
+		}
 	}
 	
 	public Socket getClientSocket() {
-		return clientSockets.pollFirst();
+		synchronized(clientSockets) {
+			return clientSockets.pollFirst();
+		}
 	}
 	
 	public void close() throws IOException {
@@ -45,7 +49,10 @@ public class ClientAcceptionThread extends Thread {
 			try {
 				
 				Socket clientSocket = serverSocket.accept();
-				clientSockets.add(clientSocket);
+				
+				synchronized(clientSockets) {
+					clientSockets.add(clientSocket);
+				}
 				
 			} catch (IOException e) {
 				Logger.logError(this.getClass(), e);

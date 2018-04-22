@@ -49,17 +49,17 @@ public class ReadingThread extends Thread {
 				
 				int type = input.read();
 				
-				int inputDataLength = input.read();
-				inputDataLength += input.read() << 8;
-				inputDataLength += input.read() << 16;
-				inputDataLength += input.read() << 24;
+				int inputDataLength  = (((int) input.read()) & 0xFF) << 0;
+					inputDataLength += (((int) input.read()) & 0xFF) << 8;
+					inputDataLength += (((int) input.read()) & 0xFF) << 16;
+					inputDataLength += (((int) input.read()) & 0xFF) << 24;
 				
 				byte[] data = new byte[inputDataLength];
 				
 				for (int i = 0; i < inputDataLength; i++)
 					data[i] = (byte) input.read();
 				
-				DataPacket packet = new DataPacket(type, data);
+				DataPacket packet = new DataPacket(type, new DataByteBuffer(data));
 				
 				synchronized(packetQueue) {
 					packetQueue.add(packet);
