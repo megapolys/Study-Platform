@@ -6,7 +6,6 @@ public class File {
     private int[] filePath;
     private String nameOfFile;
     private String hashCode;
-    private int index;
     private String filePathString;
 
 

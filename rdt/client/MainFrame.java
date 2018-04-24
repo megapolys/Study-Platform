@@ -1,6 +1,7 @@
 package rdt.client;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
@@ -9,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import rdt.client.fileSystem.Class;
@@ -32,23 +34,24 @@ public class MainFrame extends Application {
 
         stage = primaryStage;
 
-        setFullScreen();
+        setScreenSize();
 
         setMainScene();
 
         stage.setScene(mainScene);
         stage.show();
+        stage.setTitle("JavaFX Application");
 
     }
 
-    private void setFullScreen(){
-        Screen screen = Screen.getPrimary();
-        Rectangle2D bounds = screen.getVisualBounds();
-
-        stage.setX(bounds.getMinX());
-        stage.setY(bounds.getMinY());
-        stage.setWidth(bounds.getWidth());
-        stage.setHeight(bounds.getHeight());
+    private void setScreenSize(){
+//        Screen screen = Screen.getPrimary();
+//        Rectangle2D bounds = screen.getVisualBounds();
+//
+//        stage.setX(bounds.getMinX());
+//        stage.setY(bounds.getMinY());
+        stage.setWidth(1250.0);
+        stage.setHeight(850.0);
         stage.setFullScreenExitHint("");
     }
 
@@ -57,14 +60,15 @@ public class MainFrame extends Application {
         int countOfSubject = FileSystem.getCountOfSubject();
         Subject[] subjects = FileSystem.getSubjects();
 
-        FlowPane flowPane = new FlowPane(10, 50);
+        FlowPane flowPane = new FlowPane(10, 20);
         flowPane.setAlignment(Pos.CENTER);
         flowPane.setOrientation(Orientation.VERTICAL);
 
         VBox vBox = new VBox();
-        vBox.setPrefSize(1000,200);
+        vBox.setPrefSize(600,300);
 
-        Label mainLabel = new Label("Выберите предмет");
+        Label mainLabel = new Label("Предметы");
+        mainLabel.setFont(new Font(30));
 
         ScrollPane scrollPane = new ScrollPane();
         scrollPane.setPrefSize(vBox.getPrefWidth() + 2, vBox.getPrefHeight());
@@ -76,8 +80,14 @@ public class MainFrame extends Application {
             final int i1 = i;
             buttons[i1] = new Button(subjects[i1].getNameOfSubject());
             buttons[i1].setPrefWidth(vBox.getPrefWidth());
+            buttons[i1].setMinHeight(90);
             buttons[i1].setOnAction(event -> showContent(subjects[i1]));
         }
+
+//        Button button = new Button("getSize");
+//        button.setOnAction(event -> {
+//            System.out.println(stage.getWidth() + "  " + stage.getHeight());
+//        });
 
         vBox.getChildren().addAll(buttons);
 
@@ -95,6 +105,7 @@ public class MainFrame extends Application {
         treeItem.setExpanded(true);
 
         TreeView<Class> tree = new TreeView<>(treeItem);
+        tree.setMinSize(300, 500);
         tree.setOnMouseClicked(event -> {
             TreeItem<Class> selected = tree.getSelectionModel().getSelectedItem();
             if(event.getButton().equals(MouseButton.PRIMARY)){
