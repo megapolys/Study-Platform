@@ -8,21 +8,37 @@ import rdt.util.Logger;
 public class DataPacket {
 	
 	/*
+	 * 	98 - ок
 	 *  99 - запрос на получение кодов предметов
 	 * 100 - запрос на получение кодов и названий уровней иерархии
 	 * 101 - запрос на получение оглавления
 	 * 102 - запрос на получнение всех наименований
 	 * 103 - запрос на добавление предмета
-	 * 104 - запрос на добавление/изменение названия уровня иерархии
-	 * 105 - запрос на изменение названия предмета
+	 * 104 - запрос на добавление названия уровня иерархии
+	 * 105 - запрос на добавление уровня иерархии
 	 * 
 	 */
 
-	public static DataPacket getSubjectsPacket() {
+	public static DataPacket requestSubjectsPacket() {
 		return new DataPacket(99, new DataByteBuffer(new byte[0]));
 	}
 	
-	public static DataPacket getHierarchyPacket(int subjectCode) {
+	public static DataPacket responseSubjectsPacket(String[] subjectNames) {
+		
+		int length = 0;
+		for (int i = 0; i < subjectNames.length; i++)
+			length += subjectNames[i].length();
+		
+		length += (subjectNames.length + 1) * 4;
+		
+		DataByteBuffer packet = new DataByteBuffer(length);
+		packet.put(subjectNames);
+		
+		return new DataPacket(99, packet);
+		
+	}
+	
+	public static DataPacket requestHierarchyPacket(int subjectCode) {
 		
 		DataByteBuffer packet = new DataByteBuffer(4);
 		packet.put(subjectCode);
@@ -30,7 +46,23 @@ public class DataPacket {
 		return new DataPacket(100, packet);
 	}
 	
-	public static DataPacket getHeadPacket(int subjectCode) {
+	public static DataPacket responseHierarchyPacket(String[] names) {
+		
+		int length = 0;
+		for (int i = 0; i < names.length; i++)
+			length += names[i].length();
+		
+		length += (names.length + 1) * 4;
+		
+		DataByteBuffer packet = new DataByteBuffer(length);
+		
+		packet.put(names);
+		
+		return new DataPacket(100, packet);
+		
+	}
+	
+	public static DataPacket requestHeadPacket(int subjectCode) {
 		
 		DataByteBuffer packet = new DataByteBuffer(4);
 		packet.put(subjectCode);
@@ -38,7 +70,33 @@ public class DataPacket {
 		return new DataPacket(101, packet);
 	}
 	
-	public static DataPacket getNamesPacket(int subjectCode) {
+	public static DataPacket responseHeadPacket(int[][] pathes, String[] names) {
+		
+		int length = 0;
+		for (int i = 0; i < names.length; i++)
+			length += names[i].length();
+		
+		length += (names.length + 1) * 4;
+		
+		for (int i = 0; i < pathes.length; i++) {
+			length += (pathes[i].length + 1) * 4;
+		}
+		
+		length += 4;
+		
+		DataByteBuffer packet = new DataByteBuffer(length);
+		
+		for (int i = 0; i < pathes.length; i++) 
+			packet.put(pathes[i]);
+		
+		packet.put(pathes.length);
+		packet.put(names);
+		
+		return new DataPacket(101, packet);
+		
+	}
+	
+	public static DataPacket requestNamesPacket(int subjectCode) {
 		
 		DataByteBuffer packet = new DataByteBuffer(4);
 		packet.put(subjectCode);
@@ -46,7 +104,19 @@ public class DataPacket {
 		return new DataPacket(102, packet);
 	}
 	
-	public static DataPacket addSubjectPacket(String name) {
+	public static DataPacket responseNamesPacket(FileDescription[] descriptions) {
+		
+		int length = 0;
+		for (int i = 0; i < descriptions.length; i++)
+			length += descriptions[i].getSizeBytes();
+		
+		DataByteBuffer packet = new DataByteBuffer(length);
+		packet.put(descriptions);
+		
+		return new DataPacket(102, packet);
+	}
+	
+	public static DataPacket requestAddSubjectPacket(String name) {
 		
 		DataByteBuffer packet = new DataByteBuffer(name.length() + 4);
 		packet.put(name);
@@ -54,12 +124,26 @@ public class DataPacket {
 		return new DataPacket(103, packet);
 	}
 	
-	public static DataPacket addLevelPacket(String name) {
+	public static DataPacket requestAddLevelPacket(String name) {
 		
 		DataByteBuffer packet = new DataByteBuffer(name.length() + 4);
 		packet.put(name);
 		
 		return new DataPacket(103, packet);
+	}
+	
+	public static DataPacket requestAddHeadPacket(int[] path, String name) {
+		
+		int length = name.length() + 4;
+		length += (path.length + 1) * 4;
+		
+		DataByteBuffer packet = new DataByteBuffer(length);
+		
+		packet.put(path);
+		packet.put(name);
+		
+		return new DataPacket(101, packet);
+		
 	}
 	
 	private int type;

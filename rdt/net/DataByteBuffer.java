@@ -17,7 +17,7 @@ public class DataByteBuffer {
 		this.endPointer = data.length;
 	}
 	
-	public void put(int integer) {
+	public DataByteBuffer put(int integer) {
 		
 		buffer[endPointer + 0] = (byte) ((integer >> 0)  & 0xFF);
 		buffer[endPointer + 1] = (byte) ((integer >> 8)  & 0xFF);
@@ -26,9 +26,11 @@ public class DataByteBuffer {
 		
 		endPointer += 4;
 		
+		return this;
+		
 	}
 	
-	public void put(String string) {
+	public DataByteBuffer put(String string) {
 		
 		int length = string.length();
 		
@@ -36,6 +38,52 @@ public class DataByteBuffer {
 		endPointer += length;
 		
 		put(length);
+		
+		return this;
+		
+	}
+	
+	public DataByteBuffer put(FileDescription description) {
+		
+		put(description.getType());
+		put(description.getPath());
+		put(description.getName());
+		put(description.getHash());
+		
+		return this;
+		
+	}
+	
+	public DataByteBuffer put(int[] integers) {
+		
+		for (int i = 0; i < integers.length; i++)
+			put(integers[i]);
+		
+		put(integers.length);
+		
+		return this;
+		
+	}
+	
+	public DataByteBuffer put(String[] strings) {
+		
+		for (int i = 0; i < strings.length; i++)
+			put(strings[i]);
+		
+		put(strings.length);
+		
+		return this;
+		
+	}
+	
+	public DataByteBuffer put(FileDescription[] descriptions) {
+		
+		for (int i = 0; i < descriptions.length; i++)
+			put(descriptions[i]);
+		
+		put(descriptions.length);
+		
+		return this;
 		
 	}
 	
@@ -63,6 +111,26 @@ public class DataByteBuffer {
 		endPointer -= length;
 		
 		return new String(stringBytes);
+		
+	}
+	
+	public int[] getIntArray() {
+		
+		int[] result = new int[getInt()];
+		for (int i = 0; i < result.length; i++)
+			result[result.length - i - 1] = getInt();
+		
+		return result;
+		
+	}
+	
+	public String[] getStringArray() {
+		
+		String[] result = new String[getInt()];
+		for (int i = 0; i < result.length; i++)
+			result[result.length - i - 1] = getString();
+		
+		return result;
 		
 	}
 	
