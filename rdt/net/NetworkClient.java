@@ -48,6 +48,10 @@ public class NetworkClient {
 		return socket.getInetAddress();
 	}
 	
+	public boolean isConnected() {
+		return !readingThread.isInterrupted();
+	}
+	
 	public void close() throws IOException {
 		readingThread.close();
 		socket.close();

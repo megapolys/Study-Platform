@@ -32,9 +32,11 @@ public class DataByteBuffer {
 	
 	public DataByteBuffer put(String string) {
 		
-		int length = string.length();
+		byte[] stringBytes = string.getBytes();
 		
-		System.arraycopy(string.getBytes(), 0, buffer, endPointer, length);
+		int length = stringBytes.length;
+		
+		System.arraycopy(stringBytes, 0, buffer, endPointer, length);
 		endPointer += length;
 		
 		put(length);

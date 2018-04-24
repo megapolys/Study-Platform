@@ -61,8 +61,25 @@ public class NetworkServer {
 	
 	public void update() {
 		
-		while (clientAcceptionThread.hasClientSocket()) 
-			clients.add(new NetworkClient(clientAcceptionThread.getClientSocket()));
+		ArrayList<NetworkClient> toRemove = new ArrayList<NetworkClient>();
+		
+		for (int i = 0; i < clients.size(); i++)
+			if (!clients.get(i).isConnected()) {
+				toRemove.add(clients.get(i));
+				Logger.log(getClass(), clients.get(i).getInetAddress() + " disconnected!");
+			}
+		
+		
+		clients.removeAll(toRemove);
+		toRemove.clear();
+		
+		while (clientAcceptionThread.hasClientSocket()) {
+			
+			NetworkClient newClient = new NetworkClient(clientAcceptionThread.getClientSocket());
+			Logger.log(this.getClass(), newClient.getInetAddress() + " connected!");
+			
+			clients.add(newClient);
+		}
 		
 	}
 	

@@ -27,7 +27,7 @@ public class DataPacket {
 		
 		int length = 0;
 		for (int i = 0; i < subjectNames.length; i++)
-			length += subjectNames[i].length();
+			length += subjectNames[i].getBytes().length;
 		
 		length += (subjectNames.length + 1) * 4;
 		
@@ -50,7 +50,7 @@ public class DataPacket {
 		
 		int length = 0;
 		for (int i = 0; i < names.length; i++)
-			length += names[i].length();
+			length += names[i].getBytes().length;
 		
 		length += (names.length + 1) * 4;
 		
@@ -74,7 +74,7 @@ public class DataPacket {
 		
 		int length = 0;
 		for (int i = 0; i < names.length; i++)
-			length += names[i].length();
+			length += names[i].getBytes().length;
 		
 		length += (names.length + 1) * 4;
 		
@@ -118,7 +118,7 @@ public class DataPacket {
 	
 	public static DataPacket requestAddSubjectPacket(String name) {
 		
-		DataByteBuffer packet = new DataByteBuffer(name.length() + 4);
+		DataByteBuffer packet = new DataByteBuffer(name.getBytes().length + 4);
 		packet.put(name);
 		
 		return new DataPacket(103, packet);
@@ -126,7 +126,7 @@ public class DataPacket {
 	
 	public static DataPacket requestAddLevelPacket(String name) {
 		
-		DataByteBuffer packet = new DataByteBuffer(name.length() + 4);
+		DataByteBuffer packet = new DataByteBuffer(name.getBytes().length + 4);
 		packet.put(name);
 		
 		return new DataPacket(103, packet);
@@ -134,7 +134,7 @@ public class DataPacket {
 	
 	public static DataPacket requestAddHeadPacket(int[] path, String name) {
 		
-		int length = name.length() + 4;
+		int length = name.getBytes().length + 4;
 		length += (path.length + 1) * 4;
 		
 		DataByteBuffer packet = new DataByteBuffer(length);

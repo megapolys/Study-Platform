@@ -47,7 +47,7 @@ public class FileDescription {
 	}
 	
 	public int getSizeBytes() {
-		return (4 + path.length) * 4 + name.length() + hash.length();
+		return (4 + path.length) * 4 + name.getBytes().length + hash.length();
 	}
 	
 }
