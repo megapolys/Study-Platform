@@ -19,7 +19,7 @@ public class ClientMain {
 			DataByteBuffer buffer = new DataByteBuffer(str.length() + 4);
 			buffer.put(str);
 			
-			client.sendPacket(new DataPacket(0, buffer));
+			client.sendPacket(new DataPacket(104, buffer));
 			client.close();
 			
 		} catch (IOException e) {

@@ -17,12 +17,8 @@ public class ServerMain {
 
 	public ServerMain() {
 		
-		this.server = new NetworkServer(13197);
-		
-		this.subjects = new HashMap<Integer, String>();
-		this.levels = new HashMap<Integer, String>();
-		
 		setup();
+		
 		while (!Thread.interrupted()) {
 			
 			loop();
@@ -40,6 +36,11 @@ public class ServerMain {
 	
 	public void setup() {
 		
+		this.server = new NetworkServer(13197);
+		
+		this.subjects = new HashMap<Integer, String>();
+		this.levels = new HashMap<Integer, String>();
+		
 	}
 	
 	public void loop() {
@@ -51,12 +52,16 @@ public class ServerMain {
 			ClientMessage message = server.getMessage();
 			DataByteBuffer data = message.getPacket().getData();
 			
+			Logger.log(getClass(), message.getPacket().getType());
+			
 			switch (message.getPacket().getType()) {
 			
 			case 103: { //добавление предмета
 				
 				String name = data.getString();
 				int code = subjects.size();
+				
+				Logger.log(this.getClass(), 103 + " " + name + " " + code);
 				
 				subjects.put(code, name);
 				
@@ -68,12 +73,14 @@ public class ServerMain {
 				String name = data.getString();
 				int code = levels.size();
 				
+				Logger.log(this.getClass(), 104 + " " + name + " " + code);
+				
 				levels.put(code, name);
 				
 				break;
 			}
 			
-			case 105: { //добавление уровня
+			case 105: { //добавление оглавления
 				
 				String name = data.getString();
 				int[] path = data.getIntArray();
@@ -81,6 +88,8 @@ public class ServerMain {
 				Integer[] pathInts = new Integer[path.length];
 				for (int i = 0; i < path.length; i++)
 					pathInts[i] = path[i];
+				
+				Logger.log(this.getClass(), 105 + " path " + name);
 				
 				head.put(pathInts, name);
 				
