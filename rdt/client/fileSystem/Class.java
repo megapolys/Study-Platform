@@ -1,5 +1,7 @@
 package rdt.client.fileSystem;
 
+import java.util.ArrayList;
+
 public class Class {
 
     private String nameOfClass;

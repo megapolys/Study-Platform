@@ -105,7 +105,8 @@ public class MainFrame extends Application {
         treeItem.setExpanded(true);
 
         TreeView<Class> tree = new TreeView<>(treeItem);
-        tree.setMinSize(300, 500);
+        tree.setMinSize(stage.getWidth() - 20, stage.getHeight() - 200);
+        tree.setMaxSize(tree.getMaxWidth(), tree.getMinHeight());
         tree.setOnMouseClicked(event -> {
             TreeItem<Class> selected = tree.getSelectionModel().getSelectedItem();
             if(event.getButton().equals(MouseButton.PRIMARY)){
@@ -144,10 +145,14 @@ public class MainFrame extends Application {
             stage.setScene(backScene);
         });
 
+        VBox vBox = new VBox();
+        vBox.getChildren().addAll();
 
+        ScrollPane scrollPane = new ScrollPane();
 
         FlowPane flowPane = new FlowPane();
-        flowPane.getChildren().addAll(goBackButton);
+        flowPane.getChildren().addAll(goBackButton, scrollPane);
+        flowPane.setAlignment(Pos.CENTER);
 
         Scene scene = new Scene(flowPane);
         stage.setScene(scene);

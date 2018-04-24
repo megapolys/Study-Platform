@@ -7,7 +7,7 @@ public class Subject {
     private String nameOfSubject;
     private String[] nameOfChapter;
     private ArrayList<Class> classes = new ArrayList<>();
-    private File[] files;
+    private ArrayList<File> files = new ArrayList<>();
 
     public ArrayList<Class> getClasses(){
         return classes;
@@ -49,5 +49,33 @@ public class Subject {
             else flag = true;
         }
         return res;
+    }
+
+    public ArrayList<File> getFiles(Class cl){
+
+        int[] path = cl.getClassPath();
+
+        ArrayList<File> arrayList = new ArrayList<>();
+
+        boolean flag = true;
+
+        for (int i = 0; i < files.size(); i++) {
+            for (int j = 0; j < path.length; j++) {
+                if (path[j] != files.get(i).getFilePath()[j])
+                    flag = false;
+            }
+            if (flag) arrayList.add(files.get(i));
+            flag = true;
+        }
+
+        return arrayList;
+    }
+
+    public void addFile(int typeOfFile, int[] filePath, String nameOfFile){
+        files.add(new File(typeOfFile, filePath, nameOfFile));
+    }
+
+    public void setFiles(ArrayList<File> files) {
+        this.files = files;
     }
 }
