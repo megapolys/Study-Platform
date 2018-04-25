@@ -56,5 +56,17 @@ public class NetworkClient {
 		readingThread.close();
 		socket.close();
 	}
+
+	public void waitForPackets(){
+
+		while (this.hasInputPackets()) {
+			try {
+				Thread.sleep(1);
+			} catch (InterruptedException e) {
+				Logger.logError(getClass(),e);
+			}
+		}
+
+	}
 	
 }

@@ -1,5 +1,6 @@
 package rdt.client;
 
+import rdt.net.DataByteBuffer;
 import rdt.net.DataPacket;
 import rdt.net.NetworkClient;
 import rdt.util.Logger;
@@ -12,11 +13,25 @@ public class NetworkFileSystem {
     public static void init() {
         try {
             NetworkClient networkClient = new NetworkClient(new Socket("10.11.162.146", 13197));
-            networkClient.sendPacket(DataPacket.requestAddSubjectPacket("ТактикаTaktika"));
+            fillFileSystem(networkClient);
         } catch (IOException e) {
             Logger.logError(NetworkFileSystem.class, e);
         }
     }
+
+    public static void fillFileSystem(NetworkClient networkClient){
+
+        networkClient.sendPacket(DataPacket.requestSubjectsPacket());
+
+        networkClient.waitForPackets();
+
+        DataPacket packet = networkClient.getPacket();
+        DataByteBuffer dataByteBuffer = packet.getData();
+        String[] subjectName = dataByteBuffer.getStringArray();
+
+    }
+
+
 
 
 }

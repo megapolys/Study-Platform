@@ -1,11 +1,25 @@
 package rdt.client;
 
+import rdt.client.fileSystem.Class;
+import rdt.client.fileSystem.File;
 import rdt.client.fileSystem.FileSystem;
 import rdt.client.fileSystem.Subject;
 import rdt.net.DataPacket;
 
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
+
+//        NetworkFileSystem.init();
+
+        fillFileSystem();
+
+        MainFrame.launch();
+
+    }
+
+    private static void fillFileSystem(){
 
         String[] nameOfSubject = {
                 "Тактика",
@@ -38,19 +52,15 @@ public class Main {
         subjects[0].addClass("Занятие 1.2.1", classPath[5]);
 
         subjects[0].addFile(0, classPath[0], "file1");
-        subjects[0].addFile(0, classPath[1], "file21");
+        subjects[0].addFile(1, classPath[1], "file21");
         subjects[0].addFile(0, classPath[2], "file1.1");
         subjects[0].addFile(0, classPath[3], "file1.2");
         subjects[0].addFile(1, classPath[4], "file2.1");
-        subjects[0].addFile(1, classPath[5], "file1.2.11");
+        subjects[0].addFile(0, classPath[5], "file1.2.11");
         subjects[0].addFile(1, classPath[1], "file22");
-        subjects[0].addFile(1, classPath[5], "file1.2.12");
+        subjects[0].addFile(2, classPath[5], "file1.2.12");
 
         FileSystem.setSubjects(subjects);
-
-        NetworkFileSystem.init();
-
-        MainFrame.launch();
 
     }
     

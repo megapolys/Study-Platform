@@ -31,7 +31,9 @@ public class Subject {
     }
 
     public void addClass(String nameOfClass, int[] classPath){
-        classes.add(new Class(nameOfClass, classPath));
+        Class aClass = new Class(nameOfClass, classPath);
+        aClass.setParentSubject(this);
+        classes.add(aClass);
     }
 
     public ArrayList<Class> getUnderClasses(int[] chapter){
@@ -60,8 +62,11 @@ public class Subject {
         boolean flag = true;
 
         for (int i = 0; i < files.size(); i++) {
-            for (int j = 0; j < path.length; j++) {
-                if (path[j] != files.get(i).getFilePath()[j])
+            int[] filePath = files.get(i).getFilePath();
+            if (path.length > filePath.length)
+                flag = false;
+            else for (int j = 0; j < path.length; j++) {
+                if (path[j] != filePath[j])
                     flag = false;
             }
             if (flag) arrayList.add(files.get(i));

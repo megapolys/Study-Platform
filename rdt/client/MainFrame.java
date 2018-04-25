@@ -9,15 +9,21 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import rdt.client.fileSystem.Class;
+import rdt.client.fileSystem.File;
 import rdt.client.fileSystem.FileSystem;
 import rdt.client.fileSystem.Subject;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MainFrame extends Application {
 
@@ -31,6 +37,8 @@ public class MainFrame extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+
+        FileSystem.init();
 
         stage = primaryStage;
 
@@ -101,7 +109,9 @@ public class MainFrame extends Application {
 
         String[] nameOfChapter = subject.getNameOfChapter();
 
-        TreeItem<Class> treeItem = getTreeItem(new Class(subject.getNameOfSubject(), new int[0]), subject);
+        Class backClass = new Class(subject.getNameOfSubject(), new int[0]);
+        backClass.setParentSubject(subject);
+        TreeItem<Class> treeItem = getTreeItem(backClass);
         treeItem.setExpanded(true);
 
         TreeView<Class> tree = new TreeView<>(treeItem);
@@ -111,6 +121,7 @@ public class MainFrame extends Application {
             TreeItem<Class> selected = tree.getSelectionModel().getSelectedItem();
             if(event.getButton().equals(MouseButton.PRIMARY)){
                 if(event.getClickCount() == 2 && selected != null){
+                    selected.setExpanded(!selected.isExpanded());
                     showClassContent(selected.getValue());
                 }
             }
@@ -124,20 +135,23 @@ public class MainFrame extends Application {
 
     }
 
-    private TreeItem getTreeItem(Class backClass, Subject subject){
+    private TreeItem getTreeItem(Class backClass){
+
+        Subject subject = backClass.getParentSubject();
 
         TreeItem<Class> item = new TreeItem<>(backClass);
 
         ArrayList<Class> underClasses = subject.getUnderClasses(backClass.getClassPath());
 
         for (Class cl  : underClasses) {
-            item.getChildren().add(getTreeItem(cl, subject));
+            item.getChildren().add(getTreeItem(cl));
         }
 
         return item;
     }
 
     private void showClassContent(Class cl){
+
         Scene backScene = stage.getScene();
 
         Button goBackButton = new Button("Go back");
@@ -145,17 +159,81 @@ public class MainFrame extends Application {
             stage.setScene(backScene);
         });
 
-        VBox vBox = new VBox();
-        vBox.getChildren().addAll();
+        ArrayList<File> files = cl.getParentSubject().getFiles(cl);
+        HashSet<Integer> types = new HashSet<>();
+        for (int i = 0; i <files.size(); i++) {
+            types.add(files.get(i).getTypeOfFile());
+        }
+        files = sort(files, types);
 
-        ScrollPane scrollPane = new ScrollPane();
+        CheckBox[] checkBoxes = new CheckBox[types.size()];
+        for (int i = 0; i < types.size(); i++) {
+            checkBoxes[i] = new CheckBox();
+        }
+
+        ScrollPane scrollPane = createScrollPane(files);
 
         FlowPane flowPane = new FlowPane();
         flowPane.getChildren().addAll(goBackButton, scrollPane);
         flowPane.setAlignment(Pos.CENTER);
+        flowPane.setOrientation(Orientation.VERTICAL);
 
         Scene scene = new Scene(flowPane);
         stage.setScene(scene);
+    }
+
+    private ScrollPane createScrollPane(ArrayList<File> files){
+
+        VBox vBox = new VBox();
+        for (int i = 0; i < files.size(); i++) {
+            Label label = new Label(files.get(i).getNameOfFile());
+            int finalI = i;
+            ArrayList<File> finalFiles = files;
+            label.setOnMouseClicked(event -> {
+                openFile(finalFiles.get(finalI));
+            });
+            vBox.getChildren().add(label);
+        }
+
+        VBox vBox1 = new VBox();
+        for (int i = 0; i < files.size(); i++) {
+            Label label = new Label(FileSystem.alterType(files.get(i).getTypeOfFile()));
+            int finalI = i;
+            label.setOnMouseClicked(event -> {
+
+            });
+            vBox1.getChildren().add(label);
+        }
+
+        HBox hBox = new HBox(20);
+        hBox.getChildren().addAll(vBox1, vBox);
+
+        ScrollPane scrollPane = new ScrollPane();
+        scrollPane.setContent(hBox);
+        scrollPane.setPrefSize(stage.getWidth() / 1.5, stage.getHeight() / 1.2);
+        scrollPane.setMaxSize(scrollPane.getPrefWidth(), scrollPane.getPrefHeight());
+
+        return scrollPane;
+    }
+
+    private ArrayList<File> sort(ArrayList<File> files, HashSet<Integer> types){
+
+        ArrayList<Integer> arrayList = new ArrayList<>(types);
+        Collections.sort(arrayList);
+
+        ArrayList<File> res = new ArrayList<>();
+
+        for (Integer i : arrayList) {
+            for (int j = 0; j < files.size(); j++) {
+                if (i == files.get(j).getTypeOfFile())
+                    res.add(files.get(j));
+            }
+        }
+        return res;
+    }
+
+    private void openFile(File file){
+        System.out.println(file.getNameOfFile());
     }
 
 }

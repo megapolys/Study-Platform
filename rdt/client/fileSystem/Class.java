@@ -6,6 +6,15 @@ public class Class {
 
     private String nameOfClass;
     private int[] classPath;
+    private Subject parentSubject;
+
+    public void setParentSubject(Subject parentSubject) {
+        this.parentSubject = parentSubject;
+    }
+
+    public Subject getParentSubject() {
+        return parentSubject;
+    }
 
     public String getName() {
         return nameOfClass;
@@ -30,6 +39,14 @@ public class Class {
 
     @Override
     public String toString() {
-        return nameOfClass;
+        int lvl = classPath.length - 1;
+        if (lvl == -1) {
+            return "Предмет.  " + nameOfClass;
+        }
+        else {
+            String nameOfChapter = parentSubject.getNameOfChapter()[lvl];
+            int num = classPath[lvl] + 1;
+            return nameOfChapter + "№" + num + " " + nameOfClass;
+        }
     }
 }
