@@ -32,4 +32,12 @@ public class FileSystem {
         return typeList.get(type);
     }
 
+    public static int getIntType(String value){
+        for (int i = 0; i < typeList.size(); i++) {
+            if (value.equals(typeList.get(i)))
+                return i;
+        }
+        return -1;
+    }
+
 }

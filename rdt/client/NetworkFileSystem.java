@@ -22,12 +22,17 @@ public class NetworkFileSystem {
     public static void fillFileSystem(NetworkClient networkClient){
 
         networkClient.sendPacket(DataPacket.requestSubjectsPacket());
-
         networkClient.waitForPackets();
 
         DataPacket packet = networkClient.getPacket();
         DataByteBuffer dataByteBuffer = packet.getData();
         String[] subjectName = dataByteBuffer.getStringArray();
+
+        for (int i = 0; i < subjectName.length; i++) {
+            System.out.println(subjectName);
+        }
+
+
 
     }
 
