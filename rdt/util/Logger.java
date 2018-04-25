@@ -15,7 +15,6 @@ public class Logger {
 	}
 	
 	public static void logError(Class<?> c, Throwable e) {
-		log(c, e.getMessage());
 		e.printStackTrace(output);
 	}
 	
