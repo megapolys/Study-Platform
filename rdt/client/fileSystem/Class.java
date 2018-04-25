@@ -41,7 +41,7 @@ public class Class {
     public String toString() {
         int lvl = classPath.length - 1;
         if (lvl == -1) {
-            return "Предмет.  " + nameOfClass;
+            return nameOfClass;
         }
         else {
             String nameOfChapter = parentSubject.getNameOfChapter()[lvl];
