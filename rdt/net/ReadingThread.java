@@ -1,18 +1,15 @@
 package rdt.net;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.InputStream;
 import java.net.Socket;
 import java.util.LinkedList;
-
-import rdt.util.Logger;
 
 public class ReadingThread extends Thread {
 	
 	private LinkedList<DataPacket> packetQueue;
 	
-	private BufferedReader input;
+	private InputStream input;
 	private boolean interrupted;
 
 	public ReadingThread(Socket socket) throws IOException {
@@ -20,7 +17,7 @@ public class ReadingThread extends Thread {
 		
 		this.packetQueue = new LinkedList<DataPacket>();
 		
-		this.input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		this.input = socket.getInputStream();
 		this.interrupted = false;
 		
 	}
@@ -54,20 +51,18 @@ public class ReadingThread extends Thread {
 			try {
 				
 				int type = input.read();
+				if (type == -1)
+					throw new IOException();
 				
 				int inputDataLength  = (((int) input.read()) & 0xFF) << 0;
 					inputDataLength += (((int) input.read()) & 0xFF) << 8;
 					inputDataLength += (((int) input.read()) & 0xFF) << 16;
 					inputDataLength += (((int) input.read()) & 0xFF) << 24;
-					
-				Logger.log(getClass(), type + " " + inputDataLength);
 				
 				byte[] data = new byte[inputDataLength];
 				
-				for (int i = 0; i < inputDataLength; i++)
-					data[i] = (byte) input.read();
-				
-				Logger.log(getClass(), type);
+				for (int i = 0; i < inputDataLength; i++) 
+					data[i] = (byte) (input.read() & 0xFF);
 				
 				DataPacket packet = new DataPacket(type, new DataByteBuffer(data));
 				

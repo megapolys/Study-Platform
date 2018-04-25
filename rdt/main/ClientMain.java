@@ -3,7 +3,6 @@ package rdt.main;
 import java.io.IOException;
 import java.net.Socket;
 
-import rdt.net.DataByteBuffer;
 import rdt.net.DataPacket;
 import rdt.net.NetworkClient;
 
@@ -15,12 +14,10 @@ public class ClientMain {
 			
 			NetworkClient client = new NetworkClient(new Socket("localhost", 13197));
 			
-			String str = "Hello, Server!";
-			DataByteBuffer buffer = new DataByteBuffer(str.length() + 4);
-			buffer.put(str);
+			//client.sendPacket(DataPacket.requestAddSubjectPacket("Hello, world!"));
+			//client.close();
 			
-			client.sendPacket(new DataPacket(104, buffer));
-			client.close();
+			System.exit(0);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

@@ -1,6 +1,11 @@
 package rdt.net;
 
-import rdt.util.Logger;
+import java.util.HashMap;
+import java.util.Set;
+
+import rdt.platform.backend.FileDescription;
+import rdt.platform.backend.HeadPath;
+import rdt.platform.backend.Subject;
 
 public class DataByteBuffer {
 
@@ -56,6 +61,26 @@ public class DataByteBuffer {
 		
 	}
 	
+	public DataByteBuffer put(Subject subject) {
+		
+		put(subject.getLevels().toArray(new String[0]));
+		
+		HashMap<HeadPath, String> head = subject.getHead();
+		Set<HeadPath> pathes = head.keySet();
+		
+		for (HeadPath path : pathes) {
+			put(path.getPath());
+			put(head.get(path));
+		}
+		
+		put(pathes.size());
+		
+		put(subject.getName());
+		
+		return this;
+		
+	}
+	
 	public DataByteBuffer put(int[] integers) {
 		
 		for (int i = 0; i < integers.length; i++)
@@ -89,6 +114,17 @@ public class DataByteBuffer {
 		
 	}
 	
+	public DataByteBuffer put(Subject[] subjects) {
+		
+		for (int i = 0; i < subjects.length; i++)
+			put(subjects[i]);
+		
+		put(subjects.length);
+		
+		return this;
+		
+	}
+	
 	public int getInt() {
 		
 		int result  = (((int) buffer[endPointer - 4]) & 0xFF) << 0;
@@ -107,12 +143,44 @@ public class DataByteBuffer {
 		int length = getInt();
 		byte[] stringBytes = new byte[length];
 		
-		Logger.log(getClass(), length);
-		
 		System.arraycopy(buffer, endPointer - length, stringBytes, 0, length);
 		endPointer -= length;
 		
 		return new String(stringBytes);
+		
+	}
+	
+	public FileDescription getFileDescription() {
+		
+		String hash = getString();
+		String name = getString();
+		int[] path = getIntArray();
+		int type = getInt();
+		
+		return new FileDescription(type, path, name, hash);
+		
+	}
+	
+	public Subject getSubject() {
+		
+		Subject result = new Subject(getString());
+		
+		int headLength = getInt();
+		
+		for (int i = 0; i < headLength; i++) {
+			
+			String name = getString();
+			int[] path = getIntArray();
+			
+			result.addHeadElement(path, name);
+			
+		}
+		
+		String[] levels = getStringArray();
+		for (int i = 0; i < levels.length; i++)
+			result.addLevel(levels[i]);
+		
+		return result;
 		
 	}
 	
@@ -131,6 +199,26 @@ public class DataByteBuffer {
 		String[] result = new String[getInt()];
 		for (int i = 0; i < result.length; i++)
 			result[result.length - i - 1] = getString();
+		
+		return result;
+		
+	}
+	
+	public FileDescription[] getFileDescriptionArray() {
+		
+		FileDescription[] result = new FileDescription[getInt()];
+		for (int i = 0; i < result.length; i++)
+			result[result.length - i - 1] = getFileDescription();
+		
+		return result;
+		
+	}
+	
+	public Subject[] getSubjectArray() {
+		
+		Subject[] result = new Subject[getInt()];
+		for (int i = 0; i < result.length; i++)
+			result[result.length - i - 1] = getSubject();
 		
 		return result;
 		

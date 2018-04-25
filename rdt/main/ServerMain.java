@@ -1,19 +1,24 @@
 package rdt.main;
 
-import java.util.HashMap;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 
 import rdt.net.ClientMessage;
 import rdt.net.DataByteBuffer;
 import rdt.net.NetworkServer;
+import rdt.platform.backend.Subject;
 import rdt.util.Logger;
 
 public class ServerMain {
 	
 	private NetworkServer server;
 	
-	private HashMap<Integer, String> subjects;
-	private HashMap<Integer, String> levels;
-	private HashMap<Integer[], String> head;
+	private ArrayList<Subject> subjects;
 
 	public ServerMain() {
 		
@@ -38,72 +43,164 @@ public class ServerMain {
 		
 		this.server = new NetworkServer(13197);
 		
-		this.subjects = new HashMap<Integer, String>();
-		this.levels = new HashMap<Integer, String>();
+		this.subjects = new ArrayList<Subject>();
+		
+		/*Subject subjectTactic = new Subject("Общая тактика");
+		Subject subjectBrExp = new Subject("Взрыв мозга");
+		
+		subjectTactic.addLevel("Тема");
+		subjectTactic.addLevel("Занятие");
+		
+		subjectBrExp.addLevel("Хуема");
+		subjectBrExp.addLevel("Хуенятие");
+		
+		subjectBrExp.addHeadElement(new int[] {0}, "Занятие бла бла");
+		subjectBrExp.addHeadElement(new int[] {0, 1}, "Занятие бла ну ещё");
+		
+		subjects.add(subjectTactic);
+		subjects.add(subjectBrExp);
+		
+		save();*/
+		
+		load();
+		
+		Logger.log(getClass(), subjects.get(1).getHeadElement(new int[] {0}));
 		
 	}
 	
 	public void loop() {
-		
-		server.update();
 		
 		while (server.hasMessages()) {
 			
 			ClientMessage message = server.getMessage();
 			DataByteBuffer data = message.getPacket().getData();
 			
-			Logger.log(getClass(), message.getPacket().getType());
-			
 			switch (message.getPacket().getType()) {
 			
-			case 103: { //добавление предмета
+			case 100: { //получение премета
 				
-				String name = data.getString();
-				int code = subjects.size();
+					String name = data.getString();
+					
+					Logger.log(this.getClass(), 100 + " " + name);
+					
+					subjects.add(new Subject(name));
+					
+					break;
 				
-				Logger.log(this.getClass(), 103 + " " + name + " " + code);
+				}
 				
-				subjects.put(code, name);
-				
-				break;
-			}
-				
-			case 104: { //добавление уровня
-			
-				String name = data.getString();
-				int code = levels.size();
-				
-				Logger.log(this.getClass(), 104 + " " + name + " " + code);
-				
-				levels.put(code, name);
-				
-				break;
-			}
-			
-			case 105: { //добавление оглавления
-				
-				String name = data.getString();
-				int[] path = data.getIntArray();
-				
-				Integer[] pathInts = new Integer[path.length];
-				for (int i = 0; i < path.length; i++)
-					pathInts[i] = path[i];
-				
-				Logger.log(this.getClass(), 105 + " path " + name);
-				
-				head.put(pathInts, name);
-				
-				break;
-			}
-				
-			
 			}
 			
 		}
 		
+		server.update();
+		
 	}
 	
 	public void save() {
+		
+		try {
+			
+			File subjectsFile = new File(GlobalConstants.RESOURCES_FOLDER + GlobalConstants.SUBJECTS_FILE_NAME);
+			
+			if (!subjectsFile.exists())
+				subjectsFile.createNewFile();
+			
+			DataOutputStream out = new DataOutputStream(new FileOutputStream(subjectsFile));
+			
+			out.writeInt(subjects.size());
+			for (int i = 0; i < subjects.size(); i++) {
+				
+				byte[] nameBytes = subjects.get(i).getName().getBytes();
+				out.writeInt(nameBytes.length);
+				
+				out.write(nameBytes);
+				
+			}
+			
+			out.close();
+			
+			for (int i = 0; i < subjects.size(); i++) {
+				
+				File subjectFolder = new File(GlobalConstants.RESOURCES_FOLDER + subjects.get(i).getName() + "/");
+				if (!subjectFolder.exists())
+					subjectFolder.mkdirs();
+				
+				File subjectFile = new File(GlobalConstants.RESOURCES_FOLDER + subjects.get(i).getName() + "/" + subjects.get(i).getName());
+				if (!subjectFile.exists())
+					subjectFile.createNewFile();
+				
+				byte[] subjectBytes = subjects.get(i).getBytes();
+				out = new DataOutputStream(new FileOutputStream(subjectFile));
+				
+				out.writeInt(subjectBytes.length);
+				out.write(subjectBytes);
+				
+				out.flush();
+				out.close();
+				
+			}
+		
+		} catch (IOException e) {
+			Logger.logError(getClass(), e);
+			System.exit(-1);
+		}
+		
+	}
+	
+	public void load() {
+		
+		try {
+
+			File subjectsFile = new File(GlobalConstants.RESOURCES_FOLDER + GlobalConstants.SUBJECTS_FILE_NAME);
+			
+			if (!subjectsFile.exists())
+				subjectsFile.createNewFile();
+			
+			DataInputStream in = new DataInputStream(new FileInputStream(subjectsFile));
+			
+			int subjectsLength = in.readInt();
+			String[] subjectNames = new String[subjectsLength];
+			
+			Logger.log(getClass(), subjectsLength);
+			
+			for (int i = 0; i < subjectsLength; i++) {
+				
+				byte[] subjectBytes = new byte[in.readInt()];
+				in.read(subjectBytes);
+				
+				subjectNames[i] = new String(subjectBytes);
+				
+			}
+			
+			in.close();
+			
+			for (int i = 0; i < subjectNames.length; i++) {
+				
+				File subjectFolder = new File(GlobalConstants.RESOURCES_FOLDER + subjectNames[i] + "/");
+				if (!subjectFolder.exists())
+					subjectFolder.mkdirs();
+				
+				File subjectFile = new File(GlobalConstants.RESOURCES_FOLDER + subjectNames[i] + "/" + subjectNames[i]);
+				
+				in = new DataInputStream(new FileInputStream(subjectFile));
+				
+				int subjectLength = in.readInt();
+				byte[] subjectBytes = new byte[subjectLength];
+				
+				in.read(subjectBytes);
+				
+				Subject subject = Subject.fromBytes(subjectBytes);
+				subjects.add(subject);
+				
+				in.close();
+				
+			}
+		
+		} catch (IOException e) {
+			Logger.logError(getClass(), e);
+			System.exit(-1);
+		}
 		
 	}
 	
