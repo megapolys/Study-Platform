@@ -1,19 +1,28 @@
 package rdt.client;
 
 import javafx.application.Application;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import rdt.client.fileSystem.Class;
 import rdt.client.fileSystem.File;
 import rdt.client.fileSystem.FileSystem;
 import rdt.client.fileSystem.Subject;
+import rdt.util.Logger;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -48,8 +57,9 @@ public class MainFrame extends Application {
         setMainScene();
 
         stage.setScene(mainScene);
-        stage.show();
+//        stage.show();
         stage.setTitle("JavaFX Application");
+        openFile(new File(1,null,null));
 
     }
 
@@ -273,13 +283,63 @@ public class MainFrame extends Application {
     }
 
     private void openFile(File myFile){
-        if (myFile.getTypeOfFile() == 0){     //Video
+        if (myFile.getTypeOfFile() == 1){     //Video
 
             Stage videoStage = new Stage();
 
-            java.io.File file = new java.io.File(myFile.getFilePathString());
+//            java.io.File file = new java.io.File(myFile.getFilePathString());
 
-            
+            java.io.File file = new java.io.File("D:\\videos\\Юмор\\test.mp4");
+
+            Slider slider = new Slider();
+
+            VBox vBox = new VBox();
+            vBox.getChildren().add(slider);
+
+            Media media = new Media(file.toURI().toString());
+            System.out.println(media.heightProperty()+" "+ media.getWidth());
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+            mediaPlayer.play();
+            MediaView mediaView = new MediaView(mediaPlayer);
+//            mediaView.setFitWidth(1500);
+//            mediaView.setFitHeight(1000);
+            mediaPlayer.setOnReady(new Runnable() {
+                @Override
+                public void run() {
+                    int w = mediaPlayer.getMedia().getWidth();
+                    int h = mediaPlayer.getMedia().getHeight();
+
+                    videoStage.setMinWidth(w);
+                    videoStage.setMinHeight(h);
+
+                    vBox.setMinSize(w, 100);
+                    vBox.setTranslateY(h - 100);
+
+                    slider.setMin(0.0);
+                    slider.setValue(0.0);
+                    slider.setMax(mediaPlayer.getTotalDuration().toSeconds());
+                }
+            });
+            mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
+                @Override
+                public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
+                    slider.setValue(newValue.toSeconds());
+                }
+            });
+            slider.setOnMouseClicked(event -> {
+                mediaPlayer.seek(Duration.seconds(slider.getValue()));
+            });
+
+            Group root = new Group();
+            root.getChildren().addAll(mediaView, vBox);
+
+            Scene scene = new Scene(root);
+
+            videoStage.setScene(scene);
+            videoStage.show();
+            videoStage.setOnCloseRequest(event -> {
+                mediaPlayer.stop();
+            });
         }
     }
 
