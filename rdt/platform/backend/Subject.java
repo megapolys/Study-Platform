@@ -24,6 +24,8 @@ public class Subject {
 		this.headPathes = new ArrayList<HeadPath>();
 		this.headElements = new ArrayList<String>();
 		
+		this.files = new ArrayList<DataFile>();
+		
 	}
 	
 	public String getName() {
