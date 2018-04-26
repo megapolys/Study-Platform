@@ -59,7 +59,7 @@ public class NetworkClient {
 
 	public void waitForPackets(){
 
-		while (this.hasInputPackets()) {
+		while (!this.hasInputPackets()) {
 			try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {

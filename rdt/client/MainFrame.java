@@ -18,7 +18,6 @@ import rdt.client.fileSystem.Subject;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.concurrent.atomic.AtomicReference;
 
 public class MainFrame extends Application {
 
@@ -68,7 +67,7 @@ public class MainFrame extends Application {
     private void setMainScene(){
 
         int countOfSubject = FileSystem.getCountOfSubject();
-        Subject[] subjects = FileSystem.getSubjects();
+        ArrayList<Subject> subjects = FileSystem.getSubjects();
 
         FlowPane flowPane = new FlowPane(10, 20);
         flowPane.setAlignment(Pos.CENTER);
@@ -88,10 +87,10 @@ public class MainFrame extends Application {
         Button[] buttons = new Button[countOfSubject];
         for (int i = 0; i < countOfSubject; i++) {
             final int i1 = i;
-            buttons[i1] = new Button(subjects[i1].getNameOfSubject());
+            buttons[i1] = new Button(subjects.get(i1).getNameOfSubject());
             buttons[i1].setPrefWidth(vBox.getPrefWidth());
             buttons[i1].setMinHeight(90);
-            buttons[i1].setOnAction(event -> showContent(subjects[i1]));
+            buttons[i1].setOnAction(event -> showContent(subjects.get(i1)));
         }
 
 //        Button button = new Button("getSize");
@@ -132,8 +131,12 @@ public class MainFrame extends Application {
             }
         });
 
+        HBox hBox = new HBox();
+        hBox.getChildren().add(goBackButton);
+        hBox.setPadding(new Insets(30));
+
         BorderPane root = new BorderPane();
-        root.setTop(goBackButton);
+        root.setTop(hBox);
         root.setCenter(tree);
 
         Scene scene = new Scene(root);
@@ -160,7 +163,7 @@ public class MainFrame extends Application {
 
         Scene backScene = stage.getScene();
 
-        Button goBackButton = new Button("Назад");
+        Button goBackButton = new Button("Назад в оглавление");
         goBackButton.setOnAction(event -> {
             stage.setScene(backScene);
         });
@@ -206,13 +209,13 @@ public class MainFrame extends Application {
         flowPane.getChildren().addAll(vBox, staticScrollPane);
         flowPane.setAlignment(Pos.CENTER);
 
-        Pane pane = new Pane();
-        pane.getChildren().add(goBackButton);
-        pane.setPadding(new Insets(10));
+        HBox hBox = new HBox();
+        hBox.getChildren().add(goBackButton);
+        hBox.setPadding(new Insets(30));
 
         BorderPane root = new BorderPane();
         root.setCenter(flowPane);
-        root.setTop(pane);
+        root.setTop(hBox);
 
         Scene scene = new Scene(root);
         stage.setScene(scene);

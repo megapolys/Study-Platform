@@ -8,23 +8,23 @@ public class FileSystem {
 
     private static ArrayList<String> typeList = new ArrayList<>();
 
+    private static ArrayList<Subject> subjects = new ArrayList<>();
+
     public static void init(){
         typeList.add("Презентация");
         typeList.add("Видео");
         typeList.add("Файл");
     }
 
-    private static Subject[] subjects;
-
     public static int getCountOfSubject(){
-        return subjects.length;
+        return subjects.size();
     }
 
-    public static void setSubjects(Subject[] subjects) {
-        FileSystem.subjects = subjects;
+    public static void addSubject(Subject subject) {
+        subjects.add(subject);
     }
 
-    public static Subject[] getSubjects() {
+    public static ArrayList<Subject> getSubjects() {
         return subjects;
     }
 

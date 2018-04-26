@@ -37,7 +37,7 @@ public class DataPacket {
 	
 	public static DataPacket requestSubjectPacket(String name) {
 		
-		int length = name.getBytes().length;
+		int length = name.getBytes().length + 4;
 		DataByteBuffer buffer = new DataByteBuffer(length);
 		
 		buffer.put(name);
