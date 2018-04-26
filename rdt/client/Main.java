@@ -1,20 +1,15 @@
 package rdt.client;
 
-import rdt.client.fileSystem.Class;
-import rdt.client.fileSystem.File;
 import rdt.client.fileSystem.FileSystem;
 import rdt.client.fileSystem.Subject;
-import rdt.net.DataPacket;
-
-import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
 
-//        NetworkFileSystem.init();
+        NetworkFileSystem.init();
 
-        fillFileSystem();
-
+//        fillFileSystem();
+//
         MainFrame.launch();
 
     }

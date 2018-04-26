@@ -67,7 +67,7 @@ public class MainFrame extends Application {
     private void setMainScene(){
 
         int countOfSubject = FileSystem.getCountOfSubject();
-        Subject[] subjects = FileSystem.getSubjects();
+        ArrayList<Subject> subjects = FileSystem.getSubjects();
 
         FlowPane flowPane = new FlowPane(10, 20);
         flowPane.setAlignment(Pos.CENTER);
@@ -87,10 +87,10 @@ public class MainFrame extends Application {
         Button[] buttons = new Button[countOfSubject];
         for (int i = 0; i < countOfSubject; i++) {
             final int i1 = i;
-            buttons[i1] = new Button(subjects[i1].getNameOfSubject());
+            buttons[i1] = new Button(subjects.get(i1).getNameOfSubject());
             buttons[i1].setPrefWidth(vBox.getPrefWidth());
             buttons[i1].setMinHeight(90);
-            buttons[i1].setOnAction(event -> showContent(subjects[i1]));
+            buttons[i1].setOnAction(event -> showContent(subjects.get(i1)));
         }
 
 //        Button button = new Button("getSize");
