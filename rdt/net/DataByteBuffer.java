@@ -1,10 +1,6 @@
 package rdt.net;
 
-import java.util.HashMap;
-import java.util.Set;
-
 import rdt.platform.backend.FileDescription;
-import rdt.platform.backend.HeadPath;
 import rdt.platform.backend.Subject;
 
 public class DataByteBuffer {
@@ -63,17 +59,18 @@ public class DataByteBuffer {
 	
 	public DataByteBuffer put(Subject subject) {
 		
-		put(subject.getLevels().toArray(new String[0]));
+		put(subject.getLevels());
 		
-		HashMap<HeadPath, String> head = subject.getHead();
-		Set<HeadPath> pathes = head.keySet();
+		int[][] pathes = subject.getHeadPathes();
 		
-		for (HeadPath path : pathes) {
-			put(path.getPath());
-			put(head.get(path));
+		for (int[] path : pathes) {
+			put(path);
+			put(subject.getHeadElement(path));
 		}
 		
-		put(pathes.size());
+		put(pathes.length);
+		
+		put(subject.getFileDescriptions());
 		
 		put(subject.getName());
 		
@@ -164,6 +161,10 @@ public class DataByteBuffer {
 	public Subject getSubject() {
 		
 		Subject result = new Subject(getString());
+		
+		FileDescription[] descriptions = getFileDescriptionArray();
+		for (int i = 0; i < descriptions.length; i++)
+			result.addFileDescription(descriptions[i]);
 		
 		int headLength = getInt();
 		

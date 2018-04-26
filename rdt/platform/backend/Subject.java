@@ -12,6 +12,7 @@ public class Subject {
 	
 	private ArrayList<String> levels;
 	private HashMap<HeadPath, String> head;
+	private ArrayList<FileDescription> fileDescriptions;
 	
 	public Subject(String name) {
 		
@@ -26,12 +27,28 @@ public class Subject {
 		return this.name;
 	}
 	
-	public ArrayList<String> getLevels() {
-		return this.levels;
+	public String[] getLevels() {
+		
+		String[] result = new String[levels.size()];
+		levels.toArray(result);
+		
+		return result;
 	}
 	
-	public HashMap<HeadPath, String> getHead() {
-		return this.head;
+	public int[][] getHeadPathes() {
+		
+		Set<HeadPath> pathSet = head.keySet();
+		int[][] result = new int[pathSet.size()][];
+		
+		int i = 0;
+		for (HeadPath path : pathSet) {
+			
+			result[i] = path.getPath();
+			i++;
+			
+		}
+		
+		return result;
 	}
 	
 	public void addLevel(String name) {
@@ -42,12 +59,28 @@ public class Subject {
 		this.head.put(new HeadPath(path), name);
 	}
 	
+	public void addFileDescription(FileDescription description) {
+		this.fileDescriptions.add(description);
+	}
+	
 	public String getLevel(int index) {
 		return this.levels.get(index);
 	}
 	
 	public String getHeadElement(int[] path) {
 		return this.head.get(new HeadPath(path));
+	}
+	
+	public FileDescription getFileDescription(int index)  {
+		return this.fileDescriptions.get(index);
+	}
+	
+	public FileDescription[] getFileDescriptions() {
+		
+		FileDescription[] result = new FileDescription[fileDescriptions.size()];
+		fileDescriptions.toArray(result);
+		
+		return result;
 	}
 	
 	public int getSizeBytes() {
@@ -57,7 +90,10 @@ public class Subject {
 		for (int i = 0; i < levels.size(); i++)
 			length += levels.get(i).getBytes().length;
 		
-		length += levels.size() * 4;
+		for (int i = 0; i < fileDescriptions.size(); i++)
+			length += fileDescriptions.get(i).getSizeBytes();
+		
+		length += levels.size() * 4 + 4;
 		
 		Set<HeadPath> pathes = head.keySet();
 		for (HeadPath path : pathes) {
