@@ -17,7 +17,7 @@ public class NetworkServer {
 		
 		try {
 			
-			Logger.log(this.getClass(), "Server is starting..");
+			Logger.log("Server is starting..");
 			
 			this.serverSocket = new ServerSocket(port);
 			
@@ -26,10 +26,10 @@ public class NetworkServer {
 			
 			this.clientAcceptionThread.start();
 			
-			Logger.log(this.getClass(), "Server started!");
+			Logger.log("Server started!");
 			
 		} catch (IOException e) {
-			Logger.logError(this.getClass(), e);
+			Logger.logError(e);
 			System.exit(-1);
 		}
 		
@@ -66,7 +66,7 @@ public class NetworkServer {
 		for (int i = 0; i < clients.size(); i++)
 			if (!clients.get(i).isConnected()) {
 				toRemove.add(clients.get(i));
-				Logger.log(getClass(), clients.get(i).getInetAddress() + " disconnected!");
+				Logger.log(clients.get(i).getInetAddress() + " disconnected!");
 			}
 		
 		
@@ -76,7 +76,7 @@ public class NetworkServer {
 		while (clientAcceptionThread.hasClientSocket()) {
 			
 			NetworkClient newClient = new NetworkClient(clientAcceptionThread.getClientSocket());
-			Logger.log(this.getClass(), newClient.getInetAddress() + " connected!");
+			Logger.log(newClient.getInetAddress() + " connected!");
 			
 			clients.add(newClient);
 		}
@@ -87,17 +87,17 @@ public class NetworkServer {
 		
 		try {
 			
-			Logger.log(this.getClass(), "Server is stopping..");
+			Logger.log("Server is stopping..");
 			
 			clientAcceptionThread.close();
 			
 			for (int i = 0; i < clients.size(); i++)
 				clients.get(i).close();
 			
-			Logger.log(this.getClass(), "Server was stopped..");
+			Logger.log("Server was stopped..");
 			
 		} catch (IOException e) {
-			Logger.logError(this.getClass(), e);
+			Logger.logError(e);
 			System.exit(-1);
 		}
 	}

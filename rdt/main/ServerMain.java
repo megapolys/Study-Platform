@@ -10,7 +10,9 @@ import java.util.ArrayList;
 
 import rdt.net.ClientMessage;
 import rdt.net.DataByteBuffer;
+import rdt.net.DataPacket;
 import rdt.net.NetworkServer;
+import rdt.platform.backend.DataFile;
 import rdt.platform.backend.Subject;
 import rdt.util.Logger;
 
@@ -31,7 +33,7 @@ public class ServerMain {
 			try {
 				Thread.sleep(1);
 			} catch (InterruptedException e) {
-				Logger.logError(this.getClass(), e);
+				Logger.logError(e);
 				System.exit(-1);
 			}
 			
@@ -64,7 +66,7 @@ public class ServerMain {
 		
 		load();
 		
-		Logger.log(getClass(), subjects.get(1).getHeadElement(new int[] {0}));
+		//Logger.log(subjects.get(1).getHeadElement(new int[] {0}));
 		
 	}
 	
@@ -77,13 +79,38 @@ public class ServerMain {
 			
 			switch (message.getPacket().getType()) {
 			
-			case 100: { //получение премета
+			case 100: { //получение описания премета
+					
+					String subjectName = data.getString();
+					for (int i = 0; i < subjects.size(); i++) {
+						if (subjects.get(i).getName().equals(subjectName)) {
+							
+							DataPacket packet = DataPacket.responseSubjectPacket(subjects.get(i));
+							message.getClient().sendPacket(packet);
+							
+							break;
+						}
+					}
+					
+					break;
 				
-					String name = data.getString();
-					
-					Logger.log(this.getClass(), 100 + " " + name);
-					
-					subjects.add(new Subject(name));
+				}
+			
+			case 101: { //получение файлов
+				
+					String subjectName = data.getString();
+					String hash = data.getString();
+					for (int i = 0; i < subjects.size(); i++) {
+						if (subjects.get(i).getName().equals(subjectName)) {
+							
+							DataFile[] files = subjects.get(i).getDataFiles(hash);
+							
+							DataPacket packet = DataPacket.responseFilesPacket(files);
+							message.getClient().sendPacket(packet);
+							
+							break;
+						}
+					}
 					
 					break;
 				
@@ -142,7 +169,7 @@ public class ServerMain {
 			}
 		
 		} catch (IOException e) {
-			Logger.logError(getClass(), e);
+			Logger.logError(e);
 			System.exit(-1);
 		}
 		
@@ -162,7 +189,7 @@ public class ServerMain {
 			int subjectsLength = in.readInt();
 			String[] subjectNames = new String[subjectsLength];
 			
-			Logger.log(getClass(), subjectsLength);
+			Logger.log(subjectsLength);
 			
 			for (int i = 0; i < subjectsLength; i++) {
 				
@@ -198,7 +225,7 @@ public class ServerMain {
 			}
 		
 		} catch (IOException e) {
-			Logger.logError(getClass(), e);
+			Logger.logError(e);
 			System.exit(-1);
 		}
 		

@@ -1,5 +1,6 @@
 package rdt.net;
 
+import rdt.platform.backend.DataFile;
 import rdt.platform.backend.FileDescription;
 import rdt.platform.backend.Subject;
 
@@ -31,16 +32,21 @@ public class DataByteBuffer {
 		
 	}
 	
+	private void put(byte[] bytes) {
+		
+		int length = bytes.length;
+		
+		System.arraycopy(bytes, 0, buffer, endPointer, length);
+		endPointer += length;
+		
+	}
+	
 	public DataByteBuffer put(String string) {
 		
 		byte[] stringBytes = string.getBytes();
 		
-		int length = stringBytes.length;
-		
-		System.arraycopy(stringBytes, 0, buffer, endPointer, length);
-		endPointer += length;
-		
-		put(length);
+		put(stringBytes);
+		put(stringBytes.length);
 		
 		return this;
 		
@@ -73,6 +79,20 @@ public class DataByteBuffer {
 		put(subject.getFileDescriptions());
 		
 		put(subject.getName());
+		
+		return this;
+		
+	}
+	
+	public DataByteBuffer put(DataFile data) {
+		
+		if (!data.isInMemory())
+			data.readToMemory();
+		
+		put(data.getBytes().length);
+		put(data.getBytes());
+		
+		put(data.getFileDescription());
 		
 		return this;
 		
@@ -122,6 +142,17 @@ public class DataByteBuffer {
 		
 	}
 	
+	public DataByteBuffer put(DataFile[] datas) {
+		
+		for (int i = 0; i < datas.length; i++)
+			put(datas[i]);
+		
+		put(datas.length);
+		
+		return this;
+		
+	}
+	
 	public int getInt() {
 		
 		int result  = (((int) buffer[endPointer - 4]) & 0xFF) << 0;
@@ -164,7 +195,7 @@ public class DataByteBuffer {
 		
 		FileDescription[] descriptions = getFileDescriptionArray();
 		for (int i = 0; i < descriptions.length; i++)
-			result.addFileDescription(descriptions[i]);
+			result.addDataFile(new DataFile(null, descriptions[i]));
 		
 		int headLength = getInt();
 		

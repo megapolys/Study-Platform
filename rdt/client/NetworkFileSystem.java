@@ -20,7 +20,7 @@ public class NetworkFileSystem {
             NetworkClient networkClient = new NetworkClient(new Socket("10.11.162.146", 13197));
             fillFileSystem(networkClient);
         } catch (IOException e) {
-            Logger.logError(NetworkFileSystem.class, e);
+            Logger.logError(e);
         }
     }
 
