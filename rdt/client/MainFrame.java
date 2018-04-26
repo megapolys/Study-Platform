@@ -323,8 +323,11 @@ public class MainFrame extends Application {
             mediaPlayer.currentTimeProperty().addListener(new ChangeListener<Duration>() {
                 @Override
                 public void changed(ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) {
-                    slider.setValue(mediaPlayer.getCurrentTime().toSeconds());
+                    slider.setValue(newValue.toSeconds());
                 }
+            });
+            slider.setOnMouseClicked(event -> {
+                mediaPlayer.seek(Duration.seconds(slider.getValue()));
             });
 
             Group root = new Group();
