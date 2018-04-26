@@ -26,7 +26,7 @@ public class NetworkClient {
 			this.readingThread.start();
 			
 		} catch (IOException e) {
-			Logger.logError(this.getClass(), e);
+			Logger.logError(e);
 			System.exit(-1);
 		}
 		
@@ -59,12 +59,13 @@ public class NetworkClient {
 
 	public void waitForPackets(){
 
-		while (!this.hasInputPackets()) {
-			try {
+		try {
+			
+			while (!hasInputPackets()) 
 				Thread.sleep(1);
-			} catch (InterruptedException e) {
-				Logger.logError(getClass(),e);
-			}
+			
+		} catch (InterruptedException e) {
+			Logger.logError(e);
 		}
 
 	}

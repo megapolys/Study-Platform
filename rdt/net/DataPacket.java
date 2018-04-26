@@ -3,6 +3,7 @@ package rdt.net;
 import java.io.IOException;
 import java.io.OutputStream;
 
+import rdt.platform.backend.DataFile;
 import rdt.platform.backend.Subject;
 import rdt.util.Logger;
 
@@ -12,7 +13,8 @@ public class DataPacket {
 	 * 	98 - ок
 	 *  99 - запрос на получение кодов предметов
 	 * 100 - запрос на получение описания предмета
-	 * 101 - запрос на добавление предмета
+	 * 101 - запрос на получение файла(-ов)
+	 * 102 - запрос на добавление предмета
 	 * 
 	 */
 
@@ -56,113 +58,32 @@ public class DataPacket {
 		
 	}
 	
-	/*public static DataPacket requestHierarchyPacket(String subjectName) {
+	public static DataPacket requestFilesPacket(String subjectName, String hash) {
 		
-		DataByteBuffer packet = new DataByteBuffer(subjectName.getBytes().length);
-		packet.put(subjectName);
+		int length = subjectName.getBytes().length + hash.getBytes().length + 8;
+		DataByteBuffer buffer = new DataByteBuffer(length);
 		
-		return new DataPacket(100, packet);
-	}
-	
-	public static DataPacket responseHierarchyPacket(String[] names) {
+		buffer.put(hash);
+		buffer.put(subjectName);
 		
-		int length = 0;
-		for (int i = 0; i < names.length; i++)
-			length += names[i].getBytes().length;
-		
-		length += (names.length + 1) * 4;
-		
-		DataByteBuffer packet = new DataByteBuffer(length);
-		
-		packet.put(names);
-		
-		return new DataPacket(100, packet);
+		return new DataPacket(101, buffer);
 		
 	}
 	
-	public static DataPacket requestHeadPacket(String subjectName) {
+	public static DataPacket responseFilesPacket(DataFile[] files) {
 		
-		DataByteBuffer packet = new DataByteBuffer(subjectName.getBytes().length);
-		packet.put(subjectName);
-		
-		return new DataPacket(101, packet);
-	}
-	
-	public static DataPacket responseHeadPacket(int[][] pathes, String[] names) {
-		
-		int length = 0;
-		for (int i = 0; i < names.length; i++)
-			length += names[i].getBytes().length;
-		
-		length += (names.length + 1) * 4;
-		
-		for (int i = 0; i < pathes.length; i++) {
-			length += (pathes[i].length + 1) * 4;
+		int length = 4;
+		for (int i = 0; i < files.length; i++) {
+			files[i].readToMemory();
+			length += files[i].getSizeBytes();
 		}
 		
-		length += 4;
+		DataByteBuffer buffer = new DataByteBuffer(length);
 		
-		DataByteBuffer packet = new DataByteBuffer(length);
-		
-		for (int i = 0; i < pathes.length; i++) 
-			packet.put(pathes[i]);
-		
-		packet.put(pathes.length);
-		packet.put(names);
-		
-		return new DataPacket(101, packet);
+		buffer.put(files);
+		return new DataPacket(101, buffer);
 		
 	}
-	
-	public static DataPacket requestNamesPacket(int subjectCode) {
-		
-		DataByteBuffer packet = new DataByteBuffer(4);
-		packet.put(subjectCode);
-		
-		return new DataPacket(102, packet);
-	}
-	
-	public static DataPacket responseNamesPacket(FileDescription[] descriptions) {
-		
-		int length = 0;
-		for (int i = 0; i < descriptions.length; i++)
-			length += descriptions[i].getSizeBytes();
-		
-		DataByteBuffer packet = new DataByteBuffer(length);
-		packet.put(descriptions);
-		
-		return new DataPacket(102, packet);
-	}
-	
-	public static DataPacket requestAddSubjectPacket(String name) {
-		
-		DataByteBuffer packet = new DataByteBuffer(name.getBytes().length + 4);
-		packet.put(name);
-		
-		return new DataPacket(103, packet);
-	}
-	
-	public static DataPacket requestAddLevelPacket(String name) {
-		
-		DataByteBuffer packet = new DataByteBuffer(name.getBytes().length + 4);
-		packet.put(name);
-		
-		return new DataPacket(103, packet);
-	}
-	
-	public static DataPacket requestAddHeadPacket(int[] path, String name) {
-		
-		int length = name.getBytes().length + 4;
-		length += (path.length + 1) * 4;
-		
-		DataByteBuffer packet = new DataByteBuffer(length);
-		
-		packet.put(path);
-		packet.put(name);
-		
-		return new DataPacket(101, packet);
-		
-	}*/
 	
 	private int type;
 	private DataByteBuffer data;
@@ -198,10 +119,10 @@ public class DataPacket {
 			out.flush();
 			
 			for (int i = 0; i < data.length; i++)
-				Logger.log(getClass(), data[i]);
+				Logger.log(data[i]);
 			
 		} catch (IOException e) {
-			Logger.logError(this.getClass(), e);
+			Logger.logError(e);
 			System.exit(-1);
 		}
 	}

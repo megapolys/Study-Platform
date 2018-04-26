@@ -55,7 +55,7 @@ public class ClientAcceptionThread extends Thread {
 				}
 				
 			} catch (IOException e) {
-				Logger.logError(this.getClass(), e);
+				Logger.logError(e);
 				System.exit(-1);
 			}
 		}

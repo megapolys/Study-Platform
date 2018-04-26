@@ -55,6 +55,7 @@ public class Main {
         subjects[0].addFile(1, classPath[1], "file22");
         subjects[0].addFile(2, classPath[5], "file1.2.12");
 
+
         for (int i = 0; i < subjects.length; i++) {
             FileSystem.addSubject(subjects[i]);
         }
