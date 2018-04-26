@@ -12,13 +12,7 @@ public class Subject {
     public Subject(rdt.platform.backend.Subject subject){
         this.nameOfSubject = subject.getName();
 
-            mySubj[i] = new rdt.client.fileSystem.Subject(subjects.get(i).getName(), arr);
 
-            HashMap<HeadPath, String> head = subjects.get(i).getHead();
-            for (HeadPath path : head.keySet()) {
-                mySubj[i].addClass(head.get(path), path.getPath());
-            }
-        }
     }
 
     public ArrayList<Class> getClasses(){
