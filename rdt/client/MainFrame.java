@@ -272,8 +272,15 @@ public class MainFrame extends Application {
         return res;
     }
 
-    private void openFile(File file){
-        System.out.println(file.getNameOfFile());
+    private void openFile(File myFile){
+        if (myFile.getTypeOfFile() == 0){     //Video
+
+            Stage videoStage = new Stage();
+
+            java.io.File file = new java.io.File(myFile.getFilePathString());
+
+            
+        }
     }
 
 }

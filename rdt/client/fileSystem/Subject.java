@@ -11,6 +11,10 @@ public class Subject {
 
     public Subject(rdt.platform.backend.Subject subject){
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5aa3a870c911b7f142b83df7c613a55a02a9490f
     }
 
     public ArrayList<Class> getClasses(){

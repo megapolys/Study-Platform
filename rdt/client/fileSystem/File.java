@@ -25,4 +25,8 @@ public class File {
     public int[] getFilePath() {
         return filePath;
     }
+
+    public String getFilePathString() {
+        return filePathString;
+    }
 }

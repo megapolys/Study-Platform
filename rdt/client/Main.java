@@ -6,10 +6,10 @@ import rdt.client.fileSystem.Subject;
 public class Main {
     public static void main(String[] args) {
 
-        NetworkFileSystem.init();
+//        NetworkFileSystem.init();
 
-//        fillFileSystem();
-//
+        fillFileSystem();
+
         MainFrame.launch();
 
     }
@@ -55,6 +55,12 @@ public class Main {
         subjects[0].addFile(1, classPath[1], "file22");
         subjects[0].addFile(2, classPath[5], "file1.2.12");
 
+<<<<<<< HEAD
+=======
+        for (int i = 0; i < subjects.length; i++) {
+            FileSystem.addSubject(subjects[i]);
+        }
+>>>>>>> 5aa3a870c911b7f142b83df7c613a55a02a9490f
 
     }
     
