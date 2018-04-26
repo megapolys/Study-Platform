@@ -13,6 +13,7 @@ import rdt.net.DataByteBuffer;
 import rdt.net.DataPacket;
 import rdt.net.NetworkServer;
 import rdt.platform.backend.DataFile;
+import rdt.platform.backend.FileDescription;
 import rdt.platform.backend.Subject;
 import rdt.util.Logger;
 
@@ -47,7 +48,7 @@ public class ServerMain {
 		
 		this.subjects = new ArrayList<Subject>();
 		
-		/*Subject subjectTactic = new Subject("Общая тактика");
+		Subject subjectTactic = new Subject("Общая тактика");
 		Subject subjectBrExp = new Subject("Взрыв мозга");
 		
 		subjectTactic.addLevel("Тема");
@@ -59,12 +60,14 @@ public class ServerMain {
 		subjectBrExp.addHeadElement(new int[] {0}, "Занятие бла бла");
 		subjectBrExp.addHeadElement(new int[] {0, 1}, "Занятие бла ну ещё");
 		
+		subjectBrExp.addDataFile(new DataFile(GlobalConstants.RESOURCES_FOLDER + subjectBrExp.getName() + "/", new FileDescription(0, new int[] {0}, "10 лучших игр на ПК по мнению критиков.mp4", "QWE123")));
+		
 		subjects.add(subjectTactic);
 		subjects.add(subjectBrExp);
 		
-		save();*/
+		save();
 		
-		load();
+		//load();
 		
 		//Logger.log(subjects.get(1).getHeadElement(new int[] {0}));
 		
@@ -78,6 +81,18 @@ public class ServerMain {
 			DataByteBuffer data = message.getPacket().getData();
 			
 			switch (message.getPacket().getType()) {
+			
+			case 99: { //получение описания премета
+				
+					String[] subjectNames = new String[subjects.size()];
+					for (int i = 0; i < subjects.size(); i++)
+						subjectNames[i] = subjects.get(i).getName();
+					
+					message.getClient().sendPacket(DataPacket.responseSubjectsPacket(subjectNames));
+					
+					break;
+				
+				}
 			
 			case 100: { //получение описания премета
 					
@@ -101,12 +116,16 @@ public class ServerMain {
 					String subjectName = data.getString();
 					String hash = data.getString();
 					for (int i = 0; i < subjects.size(); i++) {
+						
 						if (subjects.get(i).getName().equals(subjectName)) {
 							
 							DataFile[] files = subjects.get(i).getDataFiles(hash);
 							
 							DataPacket packet = DataPacket.responseFilesPacket(files);
 							message.getClient().sendPacket(packet);
+							
+							for (int j = 0; j < files.length; j++)
+								files[j].clearMemory();
 							
 							break;
 						}
@@ -188,8 +207,6 @@ public class ServerMain {
 			
 			int subjectsLength = in.readInt();
 			String[] subjectNames = new String[subjectsLength];
-			
-			Logger.log(subjectsLength);
 			
 			for (int i = 0; i < subjectsLength; i++) {
 				

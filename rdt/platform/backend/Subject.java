@@ -82,6 +82,9 @@ public class Subject {
 	
 	public DataFile[] getDataFiles(String hash) {
 		
+		if (hash.equals("QWE123"))
+			return new DataFile[] {files.get(0)};
+		
 		for (int i = 0; i < files.size(); i++) {
 			
 			if (files.get(i).getFileDescription().getHash().equals(hash))

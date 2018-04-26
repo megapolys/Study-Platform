@@ -64,7 +64,7 @@ public class DataFile {
 		if (bytes == null) 
 			throw new RuntimeException("File not in memory! Use readToMemory() first!");
 		
-		return bytes.length + description.getSizeBytes();
+		return bytes.length + description.getSizeBytes() + 4;
 	}
 	
 }

@@ -89,8 +89,8 @@ public class DataByteBuffer {
 		if (!data.isInMemory())
 			data.readToMemory();
 		
-		put(data.getBytes().length);
 		put(data.getBytes());
+		put(data.getBytes().length);
 		
 		put(data.getFileDescription());
 		
@@ -216,6 +216,21 @@ public class DataByteBuffer {
 		
 	}
 	
+	public DataFile getDataFile(String folderPath) {
+		
+		FileDescription description = getFileDescription();
+		
+		int bytesLength = getInt();
+		byte[] bytes = new byte[bytesLength];
+		System.arraycopy(buffer, endPointer - bytesLength, bytes, 0, bytesLength);
+		
+		DataFile file = new DataFile(folderPath, description);
+		file.readToMemory(bytes);
+		
+		return file;
+		
+	}
+	
 	public int[] getIntArray() {
 		
 		int[] result = new int[getInt()];
@@ -251,6 +266,16 @@ public class DataByteBuffer {
 		Subject[] result = new Subject[getInt()];
 		for (int i = 0; i < result.length; i++)
 			result[result.length - i - 1] = getSubject();
+		
+		return result;
+		
+	}
+	
+	public DataFile[] getDataFileArray(String[] folderPathes) {
+		
+		DataFile[] result = new DataFile[getInt()];
+		for (int i = 0; i < result.length; i++)
+			result[result.length - i - 1] = getDataFile(folderPathes[i]);
 		
 		return result;
 		

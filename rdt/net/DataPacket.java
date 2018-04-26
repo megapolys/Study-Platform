@@ -14,7 +14,8 @@ public class DataPacket {
 	 *  99 - запрос на получение кодов предметов
 	 * 100 - запрос на получение описания предмета
 	 * 101 - запрос на получение файла(-ов)
-	 * 102 - запрос на добавление предмета
+	 * 200 - запрос на добавление предмета
+	 * 300 - запрос на добавление предмета на сервер
 	 * 
 	 */
 
@@ -81,6 +82,10 @@ public class DataPacket {
 		DataByteBuffer buffer = new DataByteBuffer(length);
 		
 		buffer.put(files);
+		
+		for (int i = 0; i < files.length; i++) 
+			files[i].clearMemory();
+		
 		return new DataPacket(101, buffer);
 		
 	}
@@ -117,9 +122,6 @@ public class DataPacket {
 			out.write(data);
 			
 			out.flush();
-			
-			for (int i = 0; i < data.length; i++)
-				Logger.log(data[i]);
 			
 		} catch (IOException e) {
 			Logger.logError(e);
