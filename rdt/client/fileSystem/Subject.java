@@ -1,5 +1,7 @@
 package rdt.client.fileSystem;
 
+import rdt.platform.backend.FileDescription;
+
 import java.util.ArrayList;
 
 public class Subject {
@@ -10,8 +12,21 @@ public class Subject {
     private ArrayList<File> files = new ArrayList<>();
 
     public Subject(rdt.platform.backend.Subject subject){
-        this.nameOfSubject = subject.getName();
 
+        this.nameOfSubject = subject.getName();
+        this.nameOfChapter = subject.getLevels();
+        int[][] headPathes = subject.getHeadPathes();
+        for (int i = 0; i < headPathes.length; i++) {
+            int[] headPathe = headPathes[i];
+            classes.add(new Class(subject.getHeadElement(headPathe), headPathe));
+        }
+
+        FileDescription[] fileDescriptions = subject.getFileDescriptions();
+
+        for (int i = 0; i < fileDescriptions.length; i++) {
+            FileDescription fileDescription = fileDescriptions[i];
+            files.add(new File(fileDescription.getType(), fileDescription.getPath(), fileDescription.getName()));
+        }
 
     }
 
