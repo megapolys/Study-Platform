@@ -1,0 +1,2 @@
+rdt.client.MainFrame: ---Start the application program---
+rdt.client.MainFrame: ---Stop  the application program---
