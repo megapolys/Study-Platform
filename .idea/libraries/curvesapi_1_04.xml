@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="curvesapi-1.04">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Downloads/lib/curvesapi-1.04.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/lib/poi-3.17.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/lib/poi-ooxml-3.17.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/lib/poi-ooxml-schemas-3.17.jar!/" />
+      <root url="jar://$USER_HOME$/Downloads/lib/xmlbeans-2.6.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

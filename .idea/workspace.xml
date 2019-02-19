@@ -1,44 +1,247 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Application" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4ace6fd4-3b98-46a7-b3f3-07d37f2b54bb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaFX_App.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ReadMe.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="4ace6fd4-3b98-46a7-b3f3-07d37f2b54bb" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="1245447330">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="8" />
+          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.2" value="3" />
+          <entry key="project.open.time.26" value="2" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.57" value="1" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.opened" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="9" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="260" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="260" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="JavaFX_App" />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rdt/client/fileSystem/MyByteBuffer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+            <state relative-caret-position="1870">
+              <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="114" />
               <folding>
-                <element signature="e#63#64#0" expanded="true" />
-                <element signature="e#117#118#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainFrame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/MainFrame.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rdt/client/MainFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="391">
+              <caret line="65" column="15" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
+              <folding>
+                <element signature="e#2046#3397#0" />
+                <element signature="e#2407#2560#0" />
+                <element signature="e#3067#3082#0" />
+                <element signature="e#3403#3442#0" />
+                <element signature="e#3546#3575#0" />
+                <element signature="e#5396#5444#0" />
+                <element signature="e#5897#5944#0" />
+                <element signature="e#5981#6028#0" />
+                <element signature="e#9760#10136#0" />
+                <element signature="e#10185#10760#0" />
+                <element signature="e#10821#13698#0" />
+                <element signature="e#12203#13681#0" />
+                <element signature="e#13742#15678#0" />
+                <element signature="e#14813#15661#0" />
+                <element signature="e#15722#20449#0" />
+                <element signature="e#19346#19925#0" />
+                <element signature="e#19977#20132#0" />
+                <element signature="e#20181#20389#0" />
+                <element signature="e#20547#21021#0" />
+                <element signature="e#21027#23269#0" />
+                <element signature="e#22585#22844#0" />
+                <element signature="e#22875#23260#0" />
+                <element signature="e#23275#23581#0" />
+                <element signature="e#23587#23845#0" />
+                <element signature="e#23851#35634#0" />
+                <element signature="e#24002#24061#0" />
+                <element signature="e#24537#24932#0" />
+                <element signature="e#25495#29221#0" />
+                <element signature="e#27725#29162#0" />
+                <element signature="e#29262#32647#0" />
+                <element signature="e#30725#32589#0" />
+                <element signature="e#32688#35543#0" />
+                <element signature="e#33400#33527#0" />
+                <element signature="e#35640#36045#0" />
+                <element signature="e#36051#41192#0" />
+                <element signature="e#36414#36473#0" />
+                <element signature="e#37530#38147#0" />
+                <element signature="e#38518#39276#0" />
+                <element signature="e#39574#40039#0" />
+                <element signature="e#40080#40657#0" />
+                <element signature="e#40698#41023#0" />
+                <element signature="e#41198#42091#0" />
+                <element signature="e#41378#41631#0" />
+                <element signature="e#42097#43209#0" />
+                <element signature="e#43215#44089#0" />
+                <element signature="e#43268#43310#0" />
+                <element signature="e#44208#44888#0" />
+                <element signature="e#44890#44960#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rdt/client/progressBar/ProgressDemo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1479">
+              <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="114" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rdt/util/Logger.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rdt/client/fileSystem/FileSystem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
+              <folding>
+                <element signature="e#1126#1127#0" expanded="true" />
+                <element signature="e#1163#1164#0" expanded="true" />
+                <element signature="method#isSubjNameExists#0;class#FileSystem#0" />
+                <element signature="method#getSubjectIndex#0;class#FileSystem#0" />
+                <element signature="method#deleteSubject#0;class#FileSystem#0" />
+                <element signature="method#saveConfig#0;class#FileSystem#0" />
+                <element signature="method#packSubjects#0;class#FileSystem#0" />
+                <element signature="method#loadConfig#0;class#FileSystem#0" />
+                <element signature="method#unpackSubjects#0;class#FileSystem#0" />
+                <element signature="method#deleteFolder#0;class#FileSystem#0" />
+                <element signature="method#isSubjectExists#0;class#FileSystem#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/rdt/client/progressBar/UnpackFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#231#232#0" expanded="true" />
-                <element signature="e#268#269#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rdt/client/progressBar/PackFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1003">
+              <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+              <folding>
+                <element signature="method#packFilesRec#0;class#PackFile#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rdt/client/fileSystem/Subject.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
+              <folding>
+                <element signature="e#613#672#0" />
+                <element signature="e#1498#1800#0" />
+                <element signature="e#1806#2010#0" />
+                <element signature="e#2259#2424#0" />
+                <element signature="e#2430#2615#0" />
+                <element signature="e#2707#3279#0" />
+                <element signature="e#3285#3925#0" />
+                <element signature="e#4174#6182#0" />
+                <element signature="e#6343#7350#0" />
+                <element signature="e#7432#8185#0" />
+                <element signature="e#8294#8531#0" />
+                <element signature="e#8537#8760#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rdt/client/fileSystem/StudyFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+              <folding>
+                <element signature="method#getRootDir#0;class#StudyFile#0" />
+                <element signature="method#StudyFile#0;class#StudyFile#0" />
+                <element signature="method#StudyFile#1;class#StudyFile#0" />
+                <element signature="method#init#0;class#StudyFile#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/rdt/util/FileUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+              <folding>
+                <element signature="method#ppt2img#0;class#FileUtils#0" />
+                <element signature="method#readFile#0;class#FileUtils#0" />
+                <element signature="method#packFilesRec#0;class#FileUtils#0" />
+                <element signature="method#packFiles#0;class#FileUtils#0" />
+                <element signature="method#unpackFiles#0;class#FileUtils#0" />
+                <element signature="method#isFilePack#0;class#FileUtils#0" />
+                <element signature="method#archive#0;class#FileUtils#0" />
+                <element signature="method#unarchive#0;class#FileUtils#0" />
               </folding>
             </state>
           </provider>
@@ -53,23 +256,79 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>setOnAction</find>
+      <find>addC</find>
+      <find />
+      <find>add</find>
+      <find>log</find>
+      <find>Logg</find>
+      <find>Logger</find>
+      <find>playb</find>
+      <find>system.out.print</find>
+      <find>vB</find>
+      <find>show</find>
+      <find>Предметы</find>
+      <find>errorMessage</find>
+      <find>setHash</find>
+      <find>hash</find>
+      <find>getfi</find>
+      <find>new Subject</find>
+      <find>alert</find>
+      <find>stop</find>
+      <find>setTit</find>
+      <find>double stageWidth = videoStage.getWidth();</find>
+      <find>setOnClose</find>
+      <find>compare</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/src" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/NameOFClass.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/FileSystem.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/Subject.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/File.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/Class.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/fileSystem/FillFileSystem.java" />
+        <option value="$PROJECT_DIR$/src/rdt/admin/MainFrameAdmin.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/fileSystem/Class.java" />
+        <option value="$PROJECT_DIR$/src/rdt/net/NetworkClient.java" />
+        <option value="$PROJECT_DIR$/src/rdt/net/DataPacket.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/fileSystem/File.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/progressBar/ProgressBar.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/fileSystem/HeadClass.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/NetworkFileSystem.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/fileSystem/StudyFile.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/progressBar/UnpackPPT.java" />
+        <option value="$PROJECT_DIR$/src/rdt/util/FileUtils.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/progressBar/ProgressDemo.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/progressBar/UnpackFile.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/VideoStage.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/PresentationStage.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/fileSystem/Subject.java" />
+        <option value="$PROJECT_DIR$/src/rdt/util/Logger.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/progressBar/PackFile.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/fileSystem/FileSystem.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/Main.java" />
+        <option value="$PROJECT_DIR$/src/rdt/client/fileSystem/MyByteBuffer.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="857" />
+    <option name="y" value="158" />
+    <option name="width" value="997" />
+    <option name="height" value="1037" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -77,8 +336,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -91,12 +348,66 @@
               <item name="Study-Platform" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="JavaFX_App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study-Platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rdt" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFX_App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study-Platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rdt" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFX_App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study-Platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rdt" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="fileSystem" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFX_App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study-Platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rdt" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="progressBar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaFX_App" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Study-Platform" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="rdt" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536822662427" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\gitHub\Study-Platform\src\rdt\util" />
+      <recent name="D:\gitHub\Study-Platform\src" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\gitHub\Study-Platform\out\production" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -110,56 +421,73 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+      <option name="MAIN_CLASS_NAME" value="rdt.client.Main" />
       <module name="JavaFX_App" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rdt.client.MainFrame" />
+      <module name="JavaFX_App" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rdt.client.fileSystem.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rdt.main.ServerMain" />
+      <module name="JavaFX_App" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rdt.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.ServerMain" />
+      <item itemvalue="Application.MainFrame" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.MainFrame" />
+        <item itemvalue="Application.ServerMain" />
       </list>
     </recent_temporary>
   </component>
@@ -177,70 +505,536 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info id="Image Layers" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Maven Projects" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32965517" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info id="Capture Tool" />
-      <window_info id="Designer" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12565105" />
+      <window_info id="DB Browser" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.2595949" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info id="UI Designer" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.5006896" side_tool="true" weight="0.16796875" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="DB Execution Console" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.40233237" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.26760563" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28277355" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32936078" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
+    <layout-to-restore>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49931034" visible="true" weight="0.23773988" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" sideWeight="0.5006896" side_tool="true" weight="0.16796875" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.40233237" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26218852" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.28277355" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" weight="0.32944608" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/layout/FlowPane.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/control/Alert.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/layout/Pane.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/beans/property/ObjectPropertyBase.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/control/ChoiceBox.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/beans/property/ReadOnlyObjectPropertyBase.java" />
+    <entry file="file://$PROJECT_DIR$/src/rdt/admin/MainFrameAdmin.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/application/Application.java" />
+    <entry file="file://$PROJECT_DIR$/out/production/data/config">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="149" column="13" selection-start-line="149" selection-start-column="13" selection-end-line="149" selection-end-column="13" />
+        <state>
+          <caret column="19" selection-start-column="19" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainFrame.java">
+    <entry file="file://$PROJECT_DIR$/src/rdt/net/DataByteBuffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#231#232#0" expanded="true" />
-            <element signature="e#268#269#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-10">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/rdt/net/ClientMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
-          <caret line="2" column="27" selection-start-line="2" selection-start-column="27" selection-end-line="2" selection-end-column="27" />
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/net/ClientAcceptionThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/net/DataPacket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/net/NetworkClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="61" column="13" lean-forward="true" selection-start-line="61" selection-start-column="13" selection-end-line="61" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/net/NetworkServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/net/ReadingThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/platform/backend/DataFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-469">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/platform/backend/HeadPath.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/platform/backend/Subject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/platform/backend/FileDescription.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="44" column="23" selection-start-line="44" selection-start-column="16" selection-end-line="44" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/io/File.java" />
+    <entry file="file://$PROJECT_DIR$/src/rdt/util/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/src.zip!/java/util/ArrayList.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/com/sun/javafx/scene/control/behavior/ButtonBehavior.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/com/sun/javafx/scene/control/skin/BehaviorSkinBase.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/Node.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/control/Button.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/event/Event.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/scene/Scene.java" />
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/fileSystem/HeadClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="12" column="5" selection-start-line="12" selection-start-column="5" selection-end-line="12" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/NetworkFileSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/fileSystem/zsdfsa.java" />
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/progressBar/UnpackPPT.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="53" column="62" lean-forward="true" selection-start-line="53" selection-start-column="62" selection-end-line="53" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/com/sun/glass/ui/win/WinApplication.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_151/javafx-src.zip!/javafx/stage/Stage.java" />
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/VideoStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="48" column="15" selection-start-line="48" selection-start-column="15" selection-end-line="48" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/PresentationStage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="612">
+          <caret line="275" selection-start-line="275" selection-end-line="275" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="475" column="16" selection-start-line="475" selection-start-column="16" selection-end-line="475" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="122" column="31" selection-start-line="122" selection-start-column="31" selection-end-line="122" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/lang/Object.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="141" column="64" selection-start-line="141" selection-start-column="57" selection-end-line="141" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/fileSystem/MyByteBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1870">
+          <caret line="113" column="5" selection-start-line="113" selection-start-column="5" selection-end-line="114" />
           <folding>
-            <element signature="e#63#64#0" expanded="true" />
-            <element signature="e#117#118#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="65" column="15" selection-start-line="65" selection-start-column="15" selection-end-line="65" selection-end-column="15" />
+          <folding>
+            <element signature="e#2046#3397#0" />
+            <element signature="e#2407#2560#0" />
+            <element signature="e#3067#3082#0" />
+            <element signature="e#3403#3442#0" />
+            <element signature="e#3546#3575#0" />
+            <element signature="e#5396#5444#0" />
+            <element signature="e#5897#5944#0" />
+            <element signature="e#5981#6028#0" />
+            <element signature="e#9760#10136#0" />
+            <element signature="e#10185#10760#0" />
+            <element signature="e#10821#13698#0" />
+            <element signature="e#12203#13681#0" />
+            <element signature="e#13742#15678#0" />
+            <element signature="e#14813#15661#0" />
+            <element signature="e#15722#20449#0" />
+            <element signature="e#19346#19925#0" />
+            <element signature="e#19977#20132#0" />
+            <element signature="e#20181#20389#0" />
+            <element signature="e#20547#21021#0" />
+            <element signature="e#21027#23269#0" />
+            <element signature="e#22585#22844#0" />
+            <element signature="e#22875#23260#0" />
+            <element signature="e#23275#23581#0" />
+            <element signature="e#23587#23845#0" />
+            <element signature="e#23851#35634#0" />
+            <element signature="e#24002#24061#0" />
+            <element signature="e#24537#24932#0" />
+            <element signature="e#25495#29221#0" />
+            <element signature="e#27725#29162#0" />
+            <element signature="e#29262#32647#0" />
+            <element signature="e#30725#32589#0" />
+            <element signature="e#32688#35543#0" />
+            <element signature="e#33400#33527#0" />
+            <element signature="e#35640#36045#0" />
+            <element signature="e#36051#41192#0" />
+            <element signature="e#36414#36473#0" />
+            <element signature="e#37530#38147#0" />
+            <element signature="e#38518#39276#0" />
+            <element signature="e#39574#40039#0" />
+            <element signature="e#40080#40657#0" />
+            <element signature="e#40698#41023#0" />
+            <element signature="e#41198#42091#0" />
+            <element signature="e#41378#41631#0" />
+            <element signature="e#42097#43209#0" />
+            <element signature="e#43215#44089#0" />
+            <element signature="e#43268#43310#0" />
+            <element signature="e#44208#44888#0" />
+            <element signature="e#44890#44960#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/progressBar/ProgressDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1479">
+          <caret line="113" column="21" selection-start-line="113" selection-start-column="21" selection-end-line="114" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/util/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="54" selection-start-line="14" selection-start-column="54" selection-end-line="14" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/fileSystem/FileSystem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="e#1126#1127#0" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="method#isSubjNameExists#0;class#FileSystem#0" />
+            <element signature="method#getSubjectIndex#0;class#FileSystem#0" />
+            <element signature="method#deleteSubject#0;class#FileSystem#0" />
+            <element signature="method#saveConfig#0;class#FileSystem#0" />
+            <element signature="method#packSubjects#0;class#FileSystem#0" />
+            <element signature="method#loadConfig#0;class#FileSystem#0" />
+            <element signature="method#unpackSubjects#0;class#FileSystem#0" />
+            <element signature="method#deleteFolder#0;class#FileSystem#0" />
+            <element signature="method#isSubjectExists#0;class#FileSystem#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/progressBar/PackFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="79" column="31" selection-start-line="79" selection-start-column="31" selection-end-line="79" selection-end-column="31" />
+          <folding>
+            <element signature="method#packFilesRec#0;class#PackFile#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/fileSystem/Subject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="47" column="65" selection-start-line="47" selection-start-column="65" selection-end-line="47" selection-end-column="65" />
+          <folding>
+            <element signature="e#613#672#0" />
+            <element signature="e#1498#1800#0" />
+            <element signature="e#1806#2010#0" />
+            <element signature="e#2259#2424#0" />
+            <element signature="e#2430#2615#0" />
+            <element signature="e#2707#3279#0" />
+            <element signature="e#3285#3925#0" />
+            <element signature="e#4174#6182#0" />
+            <element signature="e#6343#7350#0" />
+            <element signature="e#7432#8185#0" />
+            <element signature="e#8294#8531#0" />
+            <element signature="e#8537#8760#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/fileSystem/StudyFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+          <folding>
+            <element signature="method#getRootDir#0;class#StudyFile#0" />
+            <element signature="method#StudyFile#0;class#StudyFile#0" />
+            <element signature="method#StudyFile#1;class#StudyFile#0" />
+            <element signature="method#init#0;class#StudyFile#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/util/FileUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="method#ppt2img#0;class#FileUtils#0" />
+            <element signature="method#readFile#0;class#FileUtils#0" />
+            <element signature="method#packFilesRec#0;class#FileUtils#0" />
+            <element signature="method#packFiles#0;class#FileUtils#0" />
+            <element signature="method#unpackFiles#0;class#FileUtils#0" />
+            <element signature="method#isFilePack#0;class#FileUtils#0" />
+            <element signature="method#archive#0;class#FileUtils#0" />
+            <element signature="method#unarchive#0;class#FileUtils#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rdt/client/progressBar/UnpackFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Application</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>JavaFX_App</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>curvesapi-1.04</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
